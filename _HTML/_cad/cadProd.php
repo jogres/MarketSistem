@@ -8,7 +8,15 @@
 <body>
   <div>
     <div>
-      <nav></nav>
+      <nav>
+        <ul>
+          <li><a href="cadProd.php">Registro Produtos</a></li>
+          <li><a href="cadFun.php">Registro Empleados</a></li>
+          <li><a href="cadFor.php">Registro Provedores</a></li>
+          <li><a href="../_stoc/stoc.php">Produtos</a></li>
+          <li><a href=""></a></li>
+        </ul>
+      </nav>
     </div>
     <div>
       <div>
