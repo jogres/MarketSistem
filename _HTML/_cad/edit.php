@@ -21,10 +21,6 @@
     <div>
       <div>
         <div>
-          
-        </div>
-        <form method="get" action="../../_PHP/_cad/edit.php">
-          <fieldset>
             <table border="1">
               <tr>
                 <td><strong>Nombre del producto</strong></td>
@@ -38,11 +34,20 @@
                 include('../../_PHP/_cad/edit.php');
               ?>
             </table>
+        </div>
+        <form method="post" action="../../_PHP/_cad/editValor.php">
+          <fieldset>
+            
             <p>
+              <?php
+                
+                $id = $_GET['param'];
+                echo'<input type="hidden" name="id" value='.$id.'>';
+              ?>
               <label for="Porcent">Aumento Porcentual: </label>
               <input type="number" name="Porcent" id="Porcent">
             </p>
-            <input type="hidden" name="param" value="">
+            
           </fieldset>
           <div>
             <button type="submit" name="submit" >guardar</button>

@@ -1,10 +1,14 @@
 <?php
-  $param = $_GET['param'];
+  if(isset($_GET['param'])){
+    $param = $_GET['param'];
+  }  
   $conn = new mysqli("localhost", "root", "", "market");
-  $list = mysqli_query($conn, "select cadprod.idFor, cadprod.NomeProd, cadfor.NomeFor, cadprod.DesProd, cadprod.ContProd, cadprod.CodBar, cadprod.Preco FROM cadfor INNER JOIN cadprod ON cadfor.idfor = CadProd.idfor WHERE CadProd.idFor = '$param'");
+  $edit = mysqli_query($conn, "select cadprod.idFor, cadprod.NomeProd, cadfor.NomeFor, cadprod.DesProd, cadprod.ContProd, cadprod.CodBar, cadprod.Preco FROM cadfor INNER JOIN cadprod ON cadfor.idfor = CadProd.idfor WHERE CadProd.idFor = '$param'");
+  
   
 
-  while($campo=mysqli_fetch_array($list)){
+  
+  while($campo=mysqli_fetch_array($edit)){
     echo "<tr>";
     echo "<td>". $campo["idFor"], $campo["NomeProd"]."</td>";
     echo "<td>". $campo["NomeFor"] ."</td>";
@@ -14,6 +18,6 @@
     echo "<td>". $campo["Preco"] ."</td>";
     echo "<tr/>";
   }
-  
-  
+
+     
 ?>
