@@ -5,7 +5,7 @@
   
   while($campo=mysqli_fetch_array($list)){
     echo "<tr>";
-    echo "<td><a href='../../_HTML/_cad/edit.php?param=". $campo["idFor"]."'>". $campo["NomeProd"]."</a></td>";
+    echo "<td><a href='../../_HTML/_editValor/edit.php?param=". $campo["idFor"]."'>". $campo["NomeProd"]."</a></td>";
     echo "<td>". $campo["NomeFor"] ."</td>";
     echo "<td>". $campo["DesProd"] ."</td>";
     echo "<td>". $campo["ContProd"] ."</td>";
