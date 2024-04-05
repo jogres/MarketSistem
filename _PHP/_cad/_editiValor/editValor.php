@@ -13,7 +13,7 @@
       $novoV = $porV + $campo['Preco'];
       mysqli_query($conn, "UPDATE cadprod SET Preco = '$novoV' WHERE idFor ='$id' AND idProd = '".$campo['idProd']."'");
     }
-    
+    header("Location: ../../../_HTML/_stoc/stoc.php");
   }
   elseif(isset($_POST['sub'])){
     while($campo = mysqli_fetch_array($edit)){
@@ -22,6 +22,7 @@
       $novoV = $campo['Preco'] - $porV;
       mysqli_query($conn, "UPDATE cadprod SET Preco = '$novoV' WHERE idFor ='$id' AND idProd = '".$campo['idProd']."'");
     }
+    header("Location: ../../../_HTML/_stoc/stoc.php");
   } 
 
 ?>

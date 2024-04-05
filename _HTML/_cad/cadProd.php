@@ -44,9 +44,9 @@
               <textarea name="DesProd" id="DesProd" cols="20" rows="5"></textarea>
             </p>
             <p>
-              <label for="ContProd">Cantidad: </label>
+               <label for="ContProd">Cantidad: </label>
                <input type="number" id="ContProd" name="ContProd">
-              </p>    
+            </p>    
             <p>
               <label for="CodBar">Código de barras: </label> 
               <input type="text" id="CodBar" name="CodBar">

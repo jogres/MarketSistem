@@ -19,6 +19,12 @@
       </nav>
     </div>
     <div>
+      <form action="../../_PHP/_buscar/busca.php" method="GET">
+        <input type="text" id="busca" name="busca" placeholder="Busqueda...">
+        <button type="submit">Encontar</button>
+      </form>
+    </div>
+    <div>
       <div>
         <table border="1">
           <tr>
