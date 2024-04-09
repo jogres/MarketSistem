@@ -8,7 +8,7 @@
     die("Erro na consulta: " . mysqli_error($conn));
   }
 
-
+  if(isset($_GET['encontra'])){ 
     echo"<div>";
     echo"<nav>";
     echo"<ul>";
@@ -20,18 +20,31 @@
     echo"</ul>";
     echo"</nav>";
     echo"</div>";
-  while($linha=mysqli_fetch_assoc($sql)){
-    echo "<div>";
-    echo "<table border='1'>";
-    echo "<tr>";
-    echo "<td><a href='../../_HTML/_editValor/edit.php?param=". $linha["idFor"]."'>". $linha["NomeProd"]."</a></td>";
-    echo "<td><a href='../../_HTML/_editValor/editProd.php?param=". $linha["idProd"]."'>". $linha["NomeFor"] ."</a></td>";
-    echo "<td>". $linha["DesProd"] ."</td>";
-    echo "<td>". $linha["ContProd"] ."</td>";
-    echo "<td>". $linha["CodBar"] ."</td>";
-    echo "<td>". $linha["Preco"] ."</td>";
-    echo "<tr/>";
-    echo "</table>";
-    echo "</div>";
+   
+    while($linha=mysqli_fetch_assoc($sql)){
+      echo "<div>";
+      echo "<table border='1'>";
+      echo "<tr>";
+      echo "<td><a href='../../_HTML/_editValor/edit.php?param=". $linha["idFor"]."'>". $linha["NomeProd"]."</a></td>";
+      echo "<td><a href='../../_HTML/_editValor/editProd.php?param=". $linha["idProd"]."'>". $linha["NomeFor"] ."</a></td>";
+      echo "<td>". $linha["DesProd"] ."</td>";
+      echo "<td>". $linha["ContProd"] ."</td>";
+      echo "<td>". $linha["CodBar"] ."</td>";
+      echo "<td>". $linha["Preco"] ."</td>";
+      echo "<tr/>";
+      echo "</table>";
+      echo "</div>";
+    }
+  }
+  $prodVendas = array();
+  if(isset($_GET['codV'])){
+    while($linha=mysqli_fetch_assoc($sql)){
+              
+      $NomeProd = $linha["NomeProd"];
+      $preco = $linha["Preco"];
+      $qtd = 01;             
+    }
+    $url ="../../_HTML/_venda/venda.php?produto=". urlencode($NomeProd)."&preco=".urlencode($preco)."&quantidade=".urldecode($qtd);
+    header("location:". $url);
   }
 ?>

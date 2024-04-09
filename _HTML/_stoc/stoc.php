@@ -21,7 +21,7 @@
     <div>
       <form action="../../_PHP/_buscar/busca.php" method="GET">
         <input type="text" id="busca" name="busca" placeholder="Busqueda...">
-        <button type="submit">Encontar</button>
+        <button type="submit" id="encontra">Encontar</button>
       </form>
     </div>
     <div>
