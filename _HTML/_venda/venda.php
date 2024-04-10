@@ -1,26 +1,7 @@
 <?php
-  // Iniciar ou resumir a sessão
-  session_start(); // Destruir a sessão
-
-  // Verificar se há uma variável de sessão para os produtos
-  if (!isset($_SESSION['produtos'])) {
-      $_SESSION['produtos'] = array();
-  }
-  $total = isset($_SESSION['total']) ? $_SESSION['total'] : 0;
-
-  if (isset($_GET['produto'], $_GET['preco'], $_GET['quantidade'])) {
-    $produto = $_GET['produto'];
-    $preco = $_GET['preco'];
-    $quantidade = $_GET['quantidade'];
-
-    // Adicionar novo produto à variável de sessão
-    $_SESSION['produtos'][] = "$produto | $" . number_format($preco, 2) . " | $quantidade";
-    $total += $preco;
-    $_SESSION['total']=$total;
-  }
-
+  include('../../_PHP/_venda/buscaPreenche.php');
+  include('../../_PHP/_valid/logado.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="es-ar">
 <head>
@@ -33,12 +14,13 @@
     <div>
       <nav>
         <ul>
-          <li><a href="../_cad/cadProd.php">Registro Produtos</a></li>
-          <li><a href="../_cad/cadFun.php">Registro Empleados</a></li>
-          <li><a href="../_cad/cadFor.php">Registro Provedores</a></li>
-          <li><a href="../_stoc/stoc.php">Produtos</a></li>
-          <li><a href=""></a></li>
+          <?php
+            foreach($permis[$nivel] as $link){
+              echo "<li><a href=\"$link\">".basename($link, ".php")."</a></li>";
+            }
+          ?>
         </ul>
+       
       </nav>
     </div>
     <div>

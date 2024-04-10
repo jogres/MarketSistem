@@ -1,4 +1,6 @@
 <?php
+  session_start();
+  include('../_valid/logado.php');
   $conn = new mysqli("localhost", "root", "", "market");
   $termo = $_GET['busca'];
   
@@ -7,8 +9,9 @@
   if (!$sql) {
     die("Erro na consulta: " . mysqli_error($conn));
   }
-
-  if(isset($_GET['encontra'])){ 
+  
+  if(isset($_GET['encontra']) && $nivel=='admin'){ 
+    
     echo"<div>";
     echo"<nav>";
     echo"<ul>";
@@ -36,7 +39,32 @@
       echo "</div>";
     }
   }
-  $prodVendas = array();
+  if(isset($_GET['encontra']) && $nivel=='usuario'){ 
+    
+    echo"<div>";
+    echo"<nav>";
+    echo"<ul>";
+    echo"<li><a href='../../_HTML/_stoc/stoc.php'>Produtos</a></li>";
+    echo"<li><a href=''></a></li>";
+    echo"</ul>";
+    echo"</nav>";
+    echo"</div>";
+   
+    while($linha=mysqli_fetch_assoc($sql)){
+      echo "<div>";
+      echo "<table border='1'>";
+      echo "<tr>";
+      echo "<td>". $linha["NomeProd"]."</td>";
+      echo "<td>". $linha["NomeFor"] ."</td>";
+      echo "<td>". $linha["DesProd"] ."</td>";
+      echo "<td>". $linha["ContProd"] ."</td>";
+      echo "<td>". $linha["CodBar"] ."</td>";
+      echo "<td>". $linha["Preco"] ."</td>";
+      echo "<tr/>";
+      echo "</table>";
+      echo "</div>";
+    }
+  }
   if(isset($_GET['codV'])){
     while($linha=mysqli_fetch_assoc($sql)){
               

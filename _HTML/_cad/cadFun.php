@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  include('../../_PHP/_valid/logado.php');
+  if($nivel == 'usuario'){
+    header('location: ../_venda/venda.php');
+  }
+?>
 <!DOCTYPE html>
 <html lang="es-ar">
 <head>

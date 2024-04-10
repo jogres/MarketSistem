@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  include('../../_PHP/_valid/logado.php');
+?>
 <!DOCTYPE html>
 <html lang="es-ar">
 <head>
@@ -10,18 +14,18 @@
     <div>
       <nav>
         <ul>
-          <li><a href="../_cad/cadProd.php">Registro Produtos</a></li>
-          <li><a href="../_cad/cadFun.php">Registro Empleados</a></li>
-          <li><a href="../_cad/cadFor.php">Registro Provedores</a></li>
-          <li><a href="stoc.php">Produtos</a></li>
-          <li><a href=""></a></li>
+          <?php
+            foreach($permis[$nivel] as $link){
+              echo "<li><a href=\"$link\">".basename($link, ".php")."</a></li>";
+            }
+          ?>
         </ul>
       </nav>
     </div>
     <div>
       <form action="../../_PHP/_buscar/busca.php" method="GET">
         <input type="text" id="busca" name="busca" placeholder="Busqueda...">
-        <button type="submit" id="encontra">Encontar</button>
+        <button type="submit" id="encontra" name="encontra">Encontar</button>
       </form>
     </div>
     <div>
