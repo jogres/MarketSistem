@@ -1,6 +1,7 @@
 <?php
   include('../../_PHP/_venda/buscaPreenche.php');
   include('../../_PHP/_valid/logado.php');
+  include('../../_PHP/_venda/remover.php');
 ?>
 <!DOCTYPE html>
 <html lang="es-ar">
@@ -16,11 +17,19 @@
         <ul>
           <?php
             foreach($permis[$nivel] as $link){
-              echo "<li><a href=\"$link\">".basename($link, ".php")."</a></li>";
+              $nomeF = isset($nomeL[$link]) ? $nomeL[$link] : basename($link, ".php");
+              echo "<li><a href=\"$link\">$nomeF</a></li>";
             }
           ?>
         </ul>
-       
+        <div>
+          <?php 
+           echo $nomeP;
+          ?>
+          <form action="../../_PHP/_valid/deslogar.php" method="post">
+            <button type="submit">Salir</button>
+          </form>
+        </div>
       </nav>
     </div>
     <div>
@@ -28,9 +37,10 @@
         <input type="number" id="busca" name="busca" placeholder="Busqueda...">
         <button type="submit" id="codV" name="codV">Encontar</button>
       </form>
+      
     </div>
     <div>
-      <form action="" method="post">
+      <form action="../../_PHP/_venda/envVenda.php" method="post">
         
         <fieldset>
           <fieldset>  
@@ -46,11 +56,15 @@
                 }             
             ?></textarea>
           </fieldset>
+          <input type="hidden" name="nome" id="nome" value="<?php echo $nome;?>">
+          <input type="hidden" name="empresa" id="empresa" value="text">
+          <input type="hidden" name="cred" id="cred" value="<?php echo $cred;?>">
           <fieldset>
 
             <input type="number" min="0.00" step="0.01" name="total" id="total" value="<?php echo $total; 
             ?>" readonly>
           </fieldset>
+          <button type="submit">Imprimir</button>
         </fieldset>
         <script>
           // Obtenha a data e hora atuais

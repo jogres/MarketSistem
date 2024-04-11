@@ -1,3 +1,12 @@
+<?php
+  // Verifica se a sessão está ativa
+  session_start();
+  if (isset($_SESSION['nivel'])) {
+      // Sessão está ativa, redireciona para outra página
+      header('Location: ../_venda/venda.php');
+      exit; // Certifique-se de sair para evitar a execução de mais código
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +21,7 @@
           <label for="ident">Clave de Acesso</label><br>
           <input type="text" id="ident" name="ident">
         </fieldset>
-        <button type="submit">Enviar</button>
+        <button type="submit" id="verifca" name="verifica">Enviar</button>
       </div>
     </form>
 </body>

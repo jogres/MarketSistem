@@ -13,7 +13,8 @@
 
   while($campo=mysqli_fetch_array($edit)){
     $nCP = $campo['ContProd']+$ContProd;
-    mysqli_query($conn,"UPDATE cadprod SET NomeProd = '$NomeProd', DesProd ='$DesProd', ContProd = '$nCP', CodBar ='$CodBar', Preco = '$Preco' WHERE idProd = '$id'");
+    $totalN = $nCP * $campo['Preco'];
+    mysqli_query($conn,"UPDATE cadprod SET NomeProd = '$NomeProd', DesProd ='$DesProd', ContProd = '$nCP', CodBar ='$CodBar', Preco = '$Preco', total = '$totalN' WHERE idProd = '$id'");
   }
   header("Location: ../../../_HTML/_stoc/stoc.php");
 

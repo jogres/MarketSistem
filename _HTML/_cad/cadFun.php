@@ -17,12 +17,20 @@
     <div>
       <nav>
         <ul>
-          <li><a href="cadProd.php">Registro Produtos</a></li>
-          <li><a href="cadFun.php">Registro Empleados</a></li>
-          <li><a href="cadFor.php">Registro Provedores</a></li>
+          <li><a href="cadProd.php">Registrar Produtos</a></li>
+          <li><a href="cadFun.php">Registrar Empleados</a></li>
+          <li><a href="cadFor.php">Registrar Provedores</a></li>
           <li><a href="../_stoc/stoc.php">Produtos</a></li>
-          <li><a href=""></a></li>
+          <li><a href="../_venda/venda.php">Vender</a></li>
         </ul>
+        <div>
+          <?php 
+           echo $nomeP;
+          ?>
+          <form action="../../_PHP/_valid/deslogar.php" method="post">
+            <button type="submit">Salir</button>
+          </form>
+        </div>
       </nav>
     </div>
     <div>

@@ -19,4 +19,6 @@
     $_SESSION['total']=$total;
   }
 
+  
+  
 ?>

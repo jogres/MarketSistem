@@ -16,10 +16,19 @@
         <ul>
           <?php
             foreach($permis[$nivel] as $link){
-              echo "<li><a href=\"$link\">".basename($link, ".php")."</a></li>";
+              $nomeF = isset($nomeL[$link]) ? $nomeL[$link] : basename($link, ".php");
+              echo "<li><a href=\"$link\">$nomeF</a></li>";
             }
           ?>
         </ul>
+        <div>
+          <?php 
+           echo $nomeP;
+          ?>
+          <form action="../../_PHP/_valid/deslogar.php" method="post">
+            <button type="submit">Salir</button>
+          </form>
+        </div>
       </nav>
     </div>
     <div>
@@ -38,6 +47,11 @@
             <td><strong>Cantidad</strong></td>
             <td><strong>Código de barras</strong></td>
             <td><strong>Precio</strong></td>
+            <?php
+              if($nivel == 'admin'){
+                echo"<td><strong>Total</strong></td>";
+              }
+            ?>
           </tr>
           
             <?php 
