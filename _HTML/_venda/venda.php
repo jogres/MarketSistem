@@ -45,7 +45,7 @@
         <fieldset>
           <fieldset>  
         
-            <input type="datetime-local" id="data" name="data" readonly><br/>
+            <input type="datetime-local" id="data" name="data" ><br/>
             <textarea name="pdV" id="pdV" cols="100" rows="100" readonly><?php
                  // Exibir produtos armazenados na variável de sessão
                 foreach ($_SESSION['produtos'] as $key => $produto) {

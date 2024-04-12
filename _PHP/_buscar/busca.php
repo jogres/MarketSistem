@@ -19,7 +19,7 @@
     echo"<li><a href='../../_HTML/_cad/cadFun.php'>Registro Empleados</a></li>";
     echo"<li><a href='../../_HTML/_cad/cadFor.php'>Registro Provedores</a></li>";
     echo"<li><a href='../../_HTML/_stoc/stoc.php'>Produtos</a></li>";
-    echo"<li><a href=''></a></li>";
+    echo"<li><a href='../../_HTML/_venda/venda.php'>Vender</a></li>";
     echo"</ul>";
     echo"<div>";
     echo $nomeP;
@@ -50,7 +50,7 @@
       echo "<td>". $linha["DesProd"] ."</td>";
       echo "<td>". $linha["ContProd"] ."</td>";
       echo "<td>". $linha["CodBar"] ."</td>";
-      echo "<td>". $linha["Preco"] ."</td>";
+      echo "<td>$ ". number_format($linha["Preco"],2) ."</td>";
       echo "<tr/>";
       
      
@@ -64,7 +64,7 @@
     echo"<nav>";
     echo"<ul>";
     echo"<li><a href='../../_HTML/_stoc/stoc.php'>Produtos</a></li>";
-    echo"<li><a href=''></a></li>";
+    echo"<li><a href='../../_HTML/_venda/venda.php'>Vender</a></li>";
     echo"</ul>";
     echo"<div>";
     echo $nomeP;
@@ -94,7 +94,7 @@
       echo "<td>". $linha["DesProd"] ."</td>";
       echo "<td>". $linha["ContProd"] ."</td>";
       echo "<td>". $linha["CodBar"] ."</td>";
-      echo "<td>". $linha["Preco"] ."</td>";
+      echo "<td>$ ". number_format($linha["Preco"],2) ."</td>";
       echo "<tr/>";
      
     }

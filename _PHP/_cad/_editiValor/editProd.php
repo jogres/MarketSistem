@@ -32,7 +32,7 @@
     echo "</p>";
     echo "<p>";
     echo "<label for='Preco'>Precio: </label>";
-    echo "<input type='number' min='0.000000000000' step='0.0000000001' id='Preco' name='Preco' value='".$campo["Preco"]."'>";
+    echo "<input type='number' min='0.00' step='0.01' id='Preco' name='Preco' value='".number_format($campo["Preco"],2)."'>";
     echo "</p>";
     echo'<input type="hidden" name="id" value='.$param.'>';
   }

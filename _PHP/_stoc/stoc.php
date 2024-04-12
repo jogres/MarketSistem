@@ -11,7 +11,7 @@
       echo "<td>". $campo["DesProd"] ."</td>";
       echo "<td>". $campo["ContProd"] ."</td>";
       echo "<td>". $campo["CodBar"] ."</td>";
-      echo "<td>". $campo["Preco"] ."</td>";
+      echo "<td>$ ". number_format($campo["Preco"],2) ."</td>";
       echo "<tr/>";
     }
   }
@@ -24,14 +24,15 @@
       echo "<td>". $campo["DesProd"] ."</td>";
       echo "<td>". $campo["ContProd"] ."</td>";
       echo "<td>". $campo["CodBar"] ."</td>";
-      echo "<td>". $campo["Preco"] ."</td>";
-      echo "<td>". $campo["total"] ."</td>";
+      echo "<td>$ ". number_format($campo["Preco"],2) ."</td>";
+      echo "<td>$ ". number_format($campo["total"],2) ."</td>";
       echo "<tr/>";
       $total+= $campo["total"]; 
     }
     echo "<tr>";
-  
-    echo "<td colspan='7'>".$total."</td>";
+    
+    echo "<td colspan='6'></td>";
+    echo "<td>$ ".number_format($total,2)."</td>";
     echo "<tr>";
   }
   
