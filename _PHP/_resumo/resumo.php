@@ -7,7 +7,7 @@
     $meses = array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
     echo"<h1>".$meses[$mes-1].", ".$ano."</h1>";
     
-    $list = mysqli_query($conn, "SELECT YEAR(DataV) as ano, MONTH(DataV) as mes, DataV, ProdV, CredAcesV, Nome, NomeFun, Total
+    $list = mysqli_query($conn, "SELECT YEAR(DataV) as ano, MONTH(DataV) as mes, DataV, ProdV, CredAcesV, Nome, NomeFun, Total, Troco
     FROM venda WHERE YEAR(DataV) = '$ano' AND MONTH(DataV) = '$mes'
     ORDER BY DataV ASC;");
     while($campo=mysqli_fetch_array($list)){
@@ -16,13 +16,14 @@
       echo "<td>". $campo["NomeFun"] ."</td>";
       echo "<td>". $campo["CredAcesV"] ."</td>";
       echo "<td>". $campo["ProdV"] ."</td>";   
+      echo "<td>$ ". number_format($campo["Troco"],2) ."</td>";
       echo "<td>$ ". number_format($campo["Total"],2) ."</td>";
       echo "<tr/>";
       $total+= $campo["Total"]; 
     }
     echo "<tr>";
     
-    echo "<td colspan='4'></td>";
+    echo "<td colspan='5'></td>";
     echo "<td>$ ".number_format($total,2)."</td>";
     echo "<tr>";
   }

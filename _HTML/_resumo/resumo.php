@@ -41,6 +41,7 @@
             <td><strong>Nombre Del Empleado</strong></td>
             <td><strong>Credenciales Del Empleado</strong></td>
             <td><strong>Produtos Vendidos</strong></td>
+            <td><strong>Troco</strong></td>
             <td><strong>Total</strong></td>            
           </tr>
           

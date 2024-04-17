@@ -25,6 +25,7 @@
         <div>
           <?php 
            echo $nomeP;
+            
           ?>
           <form action="../../_PHP/_valid/deslogar.php" method="post">
             <button type="submit">Salir</button>
@@ -45,8 +46,8 @@
         <fieldset>
           <fieldset>  
         
-            <input type="datetime-local" id="data" name="data" ><br/>
-            <textarea name="pdV" id="pdV" cols="100" rows="100" readonly><?php
+            <input type="datetime-local" id="data" name="data" readonly><br/>
+            <textarea name="pdV" id="pdV" cols="100" rows="10" readonly><?php
                  // Exibir produtos armazenados na variável de sessão
                 foreach ($_SESSION['produtos'] as $key => $produto) {
                   if($key > 0){
@@ -61,9 +62,10 @@
           <input type="hidden" name="cred" id="cred" value="<?php echo $cred;?>">
           <fieldset>
 
-            <input type="number" min="0.00" step="0.01" name="total" id="total" value="<?php echo $total; 
-            ?>" readonly>
+            <input type="text"  name="total" id="total" value="<?php echo $total; ?>" readonly>
+            <input type="text"  name="troco" id="troco" value="<?php echo $troco; ?>" readonly>
           </fieldset>
+          <input type="hidden" name="submitted" value="1">
           <button type="submit">Imprimir</button>
         </fieldset>
         <script>
@@ -85,14 +87,23 @@
         </script> 
       </form>
       
-      
+      <div>
+        <form action="venda.php" method="get">
+          <input type="text" name="pago" id="pago">
+          <?php
+             
+          ?>
+        </form>  
+      </div>
     </div>
     <div>
       <footer></footer>
     </div>
   </div>
   <script>
-     // Limpar a URL removendo os parâmetros
+      window.onload = function() {
+            document.getElementById("busca").focus();
+        };
      history.replaceState({}, document.title, window.location.pathname);
   </script>
               
