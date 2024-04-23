@@ -6,16 +6,16 @@
   }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Registro</title>
 </head>
 <body>
   <div>
     <div>
-    <nav>
+      <nav>
         <ul>
           <?php
             foreach ($menu as $link => $nome) {
@@ -34,12 +34,28 @@
       </nav>
     </div>
     <div>
-      <ul>
-        <?php
-          include('../../_PHP/_resumo/resumoAno.php');
-        ?>
-      </ul>
+      <div>
+        <table border="1">
+          <tr>
+            <td><strong>Nombre del Fornecedor</strong></td>
+            <td><strong>CUIT</strong></td>
+            <td><strong>Telefono</strong></td>
+            <td><strong>Email del Fornecedor</strong></td>
+            
+            
+          </tr>
+          
+            <?php 
+              include('../../_PHP/_stoc/listFor.php');
+            ?>            
+          
+        </table>
+        
+      </div>
     </div>
-  </div>
+    <div>
+      <footer></footer>
+    </div>
+  </div>  
 </body>
 </html>

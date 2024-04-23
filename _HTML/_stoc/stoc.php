@@ -15,14 +15,14 @@
       <nav>
         <ul>
           <?php
-            foreach($permis[$nivel] as $link){
-              $nomeF = isset($nomeL[$link]) ? $nomeL[$link] : basename($link, ".php");
-              echo "<li><a href=\"$link\">$nomeF</a></li>";
+            foreach ($menu as $link => $nome) {
+              echo "<li><a href=\"$link\">$nome</a></li>";
             }
           ?>
         </ul>
         <div>
           <?php 
+            
            echo $nomeP;
           ?>
           <form action="../../_PHP/_valid/deslogar.php" method="post">

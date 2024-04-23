@@ -17,11 +17,11 @@
     <div>
       <nav>
         <ul>
-          <li><a href="cadProd.php">Registrar Produtos</a></li>
-          <li><a href="cadFun.php">Registrar Empleados</a></li>
-          <li><a href="cadFor.php">Registrar Provedores</a></li>
-          <li><a href="../_stoc/stoc.php">Produtos</a></li>
-          <li><a href="../_venda/venda.php">Vender</a></li>
+          <?php
+            foreach ($menu as $link => $nome) {
+              echo "<li><a href=\"$link\">$nome</a></li>";
+            }
+          ?>
         </ul>
         <div>
           <?php 

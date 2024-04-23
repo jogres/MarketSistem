@@ -6,22 +6,22 @@
   }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Registro</title>
 </head>
 <body>
   <div>
     <div>
-    <nav>
+      <nav>
         <ul>
           <?php
             foreach ($menu as $link => $nome) {
               echo "<li><a href=\"$link\">$nome</a></li>";
             }
-          ?>
+          ?>  
         </ul>
         <div>
           <?php 
@@ -34,12 +34,25 @@
       </nav>
     </div>
     <div>
-      <ul>
-        <?php
-          include('../../_PHP/_resumo/resumoAno.php');
-        ?>
-      </ul>
+      <div>
+        <form method="post" action="../../_PHP/_cad/_editiValor/editFov.php">
+          <fieldset>
+            
+            <?php
+              include('../../_PHP/_cad/_editiValor/editFor.php');
+            ?>
+                        
+          </fieldset>
+          <div>
+            <button type="submit">guardar</button>
+            
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
+    <div>
+      <footer></footer>
+    </div>
+  </div>  
 </body>
 </html>
