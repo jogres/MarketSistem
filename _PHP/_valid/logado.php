@@ -22,7 +22,7 @@
   $nivel = $_SESSION['nivel'];
   $cred = $_SESSION['cred'];
   $nomeP = $_SESSION['nomeFunP'];
-  $nome = $_SESSION['nomeFun'];
+  $nomeF = $_SESSION['nomeFun'];
   
   $menu = $permis[$nivel];
 

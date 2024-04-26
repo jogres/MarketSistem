@@ -40,52 +40,77 @@
       
     </div>
     <div>
-      <form action="../../_PHP/_venda/envVenda.php" method="post">
-        
-        <fieldset>
-          <fieldset>  
-        
-            <input type="datetime-local" id="data" name="data" readonly><br/>
-            <textarea name="pdV" id="pdV" cols="100" rows="10" readonly><?php
-                 // Exibir produtos armazenados na variável de sessão
-                foreach ($_SESSION['produtos'] as $key => $produto) {
-                  if($key > 0){
-                    echo "\n";
-                  }
-                  echo $produto ;
-                }             
-            ?></textarea>
-          </fieldset>
-          <input type="hidden" name="nome" id="nome" value="<?php echo $nome;?>">
-          <input type="hidden" name="empresa" id="empresa" value="text">
-          <input type="hidden" name="cred" id="cred" value="<?php echo $cred;?>">
-          <fieldset>
+      <section>
+          <form action="../../_PHP/_venda/envVenda.php" method="post">
+          
+            <fieldset>
+              <fieldset>  
 
-            <input type="text"  name="total" id="total" value="<?php echo $total; ?>" readonly>
-            <input type="text"  name="troco" id="troco" value="<?php echo $troco; ?>" readonly>
-          </fieldset>
-          <input type="hidden" name="submitted" value="1">
-          <button type="submit">Imprimir</button>
-        </fieldset>
-        <script>
-          // Obtenha a data e hora atuais
-          const now = new Date();
-          
-          // Formate a data e hora para o formato adequado
-          const year = now.getFullYear();
-          const month = String(now.getMonth() + 1).padStart(2, '0'); // adiciona zero à esquerda, se necessário
-          const day = String(now.getDate()).padStart(2, '0');
-          const hours = String(now.getHours()).padStart(2, '0');
-          const minutes = String(now.getMinutes()).padStart(2, '0');
-          const formattedDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
-          
-          // Defina a data e hora atual no campo de data
-          document.getElementById('data').value = formattedDateTime; 
-          
-          
-        </script> 
-      </form>
-      
+                <input type="datetime-local" id="data" name="data" readonly><br/>
+                <textarea name="pdV" id="pdV" cols="100" rows="10" readonly><?php                
+                     // Exibir produtos armazenados na variável de sessão
+                    foreach ($_SESSION['produtos'] as $key => $produto) {
+                      if($key > 0){
+                        echo "\n";
+                      }
+                      
+                      echo $produto ;
+                    }             
+                ?></textarea>
+              </fieldset>
+              <input type="hidden" name="nome" id="nome" value="<?php echo $nomeF;?>">
+              <input type="hidden" name="empresa" id="empresa" value="text">
+              <input type="hidden" name="cred" id="cred" value="<?php echo $cred;?>">
+              <fieldset>
+                  
+                <input type="text"  name="total" id="total" value="<?php echo number_format($total,2); ?>" readonly>
+                <input type="text"  name="troco" id="troco" value="<?php echo $troco; ?>" readonly>
+              </fieldset>
+              <input type="hidden" name="submitted" value="1">
+              <button type="submit">Imprimir</button>
+            </fieldset>
+            <script>
+              // Obtenha a data e hora atuais
+              const now = new Date();
+                  
+              // Formate a data e hora para o formato adequado
+              const year = now.getFullYear();
+              const month = String(now.getMonth() + 1).padStart(2, '0'); // adiciona zero à esquerda, se necessário
+              const day = String(now.getDate()).padStart(2, '0');
+              const hours = String(now.getHours()).padStart(2, '0');
+              const minutes = String(now.getMinutes()).padStart(2, '0');
+              const formattedDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+                  
+              // Defina a data e hora atual no campo de data
+              document.getElementById('data').value = formattedDateTime; 
+                  
+                  
+            </script> 
+          </form>
+          <section>
+              <fieldset>
+                <?php
+                  foreach ($_SESSION['produtos'] as $key => $produto) {
+                    $dadosProduto = explode(" | $", $produto);
+                    $idProduto = $key; // ou o ID do produto, dependendo de como você está armazenando
+                    $nomeProduto = $dadosProduto[0];
+                    $precoProduto = floatval($dadosProduto[1]);
+                    $quantidade = isset($dadosProduto[2]) ? floatval($dadosProduto[2]) : 0; // Verifica se a chave existe antes de acessá-la
+                    if($key > 0){
+                        echo "\n";
+                    }
+                    
+                    echo "<form action='../../_PHP/_venda/rProd.php' method='post'>";
+                    echo "<input type='hidden' name='idProduto' value='$idProduto'>";
+                    echo "<button type='submit'>$nomeProduto</button>";
+                    echo "</form>";
+                  }                
+                
+                ?>
+              </fieldset>
+
+          </section>
+      </section>
       <div>
         <form action="venda.php" method="get">
           <input type="text" name="pago" id="pago">
