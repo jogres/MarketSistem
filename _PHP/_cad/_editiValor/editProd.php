@@ -3,7 +3,7 @@
     $param = $_GET['param'];
   }
   $conn = new mysqli("localhost", "root", "", "market");
-  $edit = mysqli_query($conn, "SELECT cadprod.idFor, cadprod.NomeProd, cadfor.NomeFor, cadprod.DesProd, cadprod.ContProd, cadprod.CodBar, cadprod.Preco FROM cadfor INNER JOIN cadprod ON cadfor.idfor = CadProd.idfor WHERE CadProd.idProd = '$param'");
+  $edit = mysqli_query($conn, "SELECT cadprod.idFor, cadprod.NomeProd, cadfor.NomeFor, cadprod.DesProd, cadprod.ContProd, cadprod.CodBar, cadprod.Custo,cadprod.Preco FROM cadfor INNER JOIN cadprod ON cadfor.idfor = CadProd.idfor WHERE CadProd.idProd = '$param'");
   
   while($campo=mysqli_fetch_array($edit)){
     echo "<p>";
@@ -31,8 +31,12 @@
     echo "<input type='text' id='CodBar' name='CodBar' value='".$campo["CodBar"]."'>";
     echo "</p>";
     echo "<p>";
+    echo "<label for='Preco'>Costo: </label>";
+    echo "<input type='number' min='0.00' step='0.01' id='Custo' name='Custo' value='".number_format($campo["Custo"],2)."'>";
+    echo "</p>";
+    echo "<p>";
     echo "<label for='Preco'>Precio: </label>";
-    echo "<input type='number' min='0.00' step='0.01' id='Preco' name='Preco' value='".number_format($campo["Preco"],2)."'>";
+    echo "<input type='number' min='0.00' step='0.01' id='Preco' name='Preco' value='".$campo["Preco"]."'>";
     echo "</p>";
     echo'<input type="hidden" name="id" value='.$param.'>';
   }

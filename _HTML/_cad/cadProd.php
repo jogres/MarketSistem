@@ -67,6 +67,10 @@
               <input type="text" id="CodBar" name="CodBar">
             </p>
             <p>
+              <label for="Costo">Costo: </label>
+              <input type="number" min="0.00" step="0.01" id="Costo" name="Costo">
+            </p>
+            <p>
               <label for="Preco">Precio: </label>
               <input type="number" min="0.00" step="0.01" id="Preco" name="Preco">
             </p>
