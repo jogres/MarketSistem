@@ -1,7 +1,7 @@
 <?php
   
   $conn = new mysqli("localhost", "root", "", "market");
-  $list = mysqli_query($conn, 'select cadprod.idFor, cadprod.idProd,cadprod.NomeProd, CadFor.NomeFor, cadprod.DesProd, cadprod.ContProd, cadprod.CodBar, cadprod.Custo,cadprod.Preco, cadprod.total FROM CadFor INNER JOIN CadProd ON CadFor.idfor = CadProd.idfor WHERE CadProd.idProd = cadprod.idProd;');
+  $list = mysqli_query($conn, 'select cadprod.idFor, cadprod.idProd,cadprod.NomeProd, CadFor.NomeFor, cadprod.DesProd, cadprod.ContProd, cadprod.CodBar, cadprod.Cuni, cadprod.Custo, cadprod.Puni, cadprod.Preco, cadprod.total FROM CadFor INNER JOIN CadProd ON CadFor.idfor = CadProd.idfor WHERE CadProd.idProd = cadprod.idProd;');
   
   if($nivel=='usuario'){
     while($campo=mysqli_fetch_array($list)){
@@ -11,6 +11,7 @@
       echo "<td>". $campo["DesProd"] ."</td>";
       echo "<td>". $campo["ContProd"] ."</td>";
       echo "<td>". $campo["CodBar"] ."</td>";
+      echo "<td>$ ". number_format($campo["Puni"],2) ."</td>";
       echo "<td>$ ". number_format($campo["Preco"],2) ."</td>";
       echo "<tr/>";
     }
@@ -25,7 +26,9 @@
       echo "<td>". $campo["DesProd"] ."</td>";
       echo "<td>". $campo["ContProd"] ."</td>";
       echo "<td>". $campo["CodBar"] ."</td>";
+      echo "<td>$ ". number_format($campo["Cuni"],2) ."</td>";
       echo "<td>$ ". number_format($campo["Custo"],2) ."</td>";
+      echo "<td>$ ". number_format($campo["Puni"],2) ."</td>";
       echo "<td>$ ". number_format($campo["Preco"],2) ."</td>";
       echo "<td>$ ". number_format($campo["total"],2) ."</td>";
       echo "<tr/>";
@@ -34,9 +37,9 @@
     }
     echo "<tr>";
     
-    echo "<td colspan='5'></td>";
+    echo "<td colspan='6'></td>";
     echo "<td>$ ".number_format($totalc,2)."</td>";
-    echo "<td colspan='1'></td>";
+    echo "<td colspan='2'></td>";
     echo "<td>$ ".number_format($total,2)."</td>";
     echo "<tr>";
   }

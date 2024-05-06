@@ -12,7 +12,8 @@
       $porV = $campo['Preco']*$Porcent;
       $novoV = $porV + $campo['Preco'];
       $totalN = $campo['ContProd'] * $novoV;
-      mysqli_query($conn, "UPDATE cadprod SET Preco = '$novoV', total = '$totalN' WHERE idFor ='$id' AND idProd = '".$campo['idProd']."'");
+      $Puni = $novoV / $campo['ContProd'] ;
+      mysqli_query($conn, "UPDATE cadprod SET Puni='$Puni', Preco = '$novoV', total = '$totalN' WHERE idFor ='$id' AND idProd = '".$campo['idProd']."'");
     }
     header("Location: ../../../_HTML/_stoc/stoc.php");
   }
@@ -22,7 +23,8 @@
       $porV = $campo['Preco']*$Porcent;
       $novoV = $campo['Preco'] - $porV;
       $totalN = $campo['ContProd'] * $novoV;
-      mysqli_query($conn, "UPDATE cadprod SET Preco = '$novoV', total = '$totalN' WHERE idFor ='$id' AND idProd = '".$campo['idProd']."'");
+      $Puni = $novoV / $campo['ContProd'];
+      mysqli_query($conn, "UPDATE cadprod SET Puni='$Puni', Preco = '$novoV', total = '$totalN' WHERE idFor ='$id' AND idProd = '".$campo['idProd']."'");
     }
     header("Location: ../../../_HTML/_stoc/stoc.php");
   } 

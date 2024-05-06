@@ -38,7 +38,12 @@
     echo"<td><strong>Descripción del producto</strong></td>";
     echo"<td><strong>Cantidad</strong></td>";
     echo"<td><strong>Código de barras</strong></td>";
+    echo"<td><strong>Costo Unitario</strong></td>";
+    echo"<td><strong>Costo</strong></td>";
+    echo"<td><strong>Precio Unitario</strong></td>";
     echo"<td><strong>Precio</strong></td>";
+    echo"<td><strong>Total</strong></td>";
+    
     echo"</tr>";
 
     while($linha=mysqli_fetch_assoc($sql)){
@@ -50,7 +55,11 @@
       echo "<td>". $linha["DesProd"] ."</td>";
       echo "<td>". $linha["ContProd"] ."</td>";
       echo "<td>". $linha["CodBar"] ."</td>";
+      echo "<td>$ ". number_format($linha["Cuni"],2) ."</td>";
+      echo "<td>$ ". number_format($linha["Custo"],2) ."</td>";
+      echo "<td>$ ". number_format($linha["Puni"],2) ."</td>";
       echo "<td>$ ". number_format($linha["Preco"],2) ."</td>";
+      echo "<td>$ ". number_format($linha["total"],2) ."</td>";
       echo "<tr/>";
       
      
@@ -105,7 +114,7 @@
     while($linha=mysqli_fetch_assoc($sql)){
       $idProd = $linha['idProd'];        
       $NomeProd = $linha["NomeProd"];
-      $preco = $linha["Preco"];
+      $preco = $linha["Puni"];
       $qtd = 01;             
     }
     $url ="../../_HTML/_venda/venda.php?produto=". urlencode($NomeProd)."&preco=".urlencode($preco)."&quantidade=".urldecode($qtd)."&id=".urldecode($idProd);
