@@ -4,6 +4,7 @@
     'admin' => array(
       '../_stoc/listFun.php' => 'Empleados',
       '../_stoc/listFor.php' => 'Provedores',
+      '../_stoc/listCli.php' => 'Clientes',
       '../_stoc/stoc.php' => 'Produtos',
       '../_venda/venda.php' => 'Vender',
       '../_resumo/resumoAno.php' => 'Resumo'
@@ -37,6 +38,13 @@
     $menu =array(
       '../_cad/cadFun.php' => 'Registrar Empleado',
       '../_stoc/listFun.php' => 'Empleados',
+      '../_venda/venda.php' => 'Vender'
+    );
+  }
+  if($nivel === 'admin' && (basename($_SERVER['PHP_SELF']) === 'cadCli.php' || basename($_SERVER['PHP_SELF']) === 'listCli.php' || basename($_SERVER['PHP_SELF']) === 'editCli.php')){
+    $menu =array(
+      '../_cad/cadCli.php' => 'Registrar Clientes',
+      '../_stoc/listCli.php' => 'Clientes',
       '../_venda/venda.php' => 'Vender'
     );
   }
