@@ -46,9 +46,7 @@
             <td><strong>Descripción del producto</strong></td>
             <td><strong>Cantidad</strong></td>
             <td><strong>Código de barras</strong></td>
-            <td><strong>Costo Unitario</strong></td>
             <td><strong>Costo</strong></td>
-            <td><strong>Precio Unitario</strong></td>
             <td><strong>Precio</strong></td>
             <?php
               if($nivel == 'admin'){

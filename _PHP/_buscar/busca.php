@@ -59,7 +59,7 @@
       echo "<td>$ ". number_format($linha["Custo"],2) ."</td>";
       echo "<td>$ ". number_format($linha["Puni"],2) ."</td>";
       echo "<td>$ ". number_format($linha["Preco"],2) ."</td>";
-      echo "<td>$ ". number_format($linha["total"],2) ."</td>";
+      echo "<td>$ ". number_format($linha["Total"],2) ."</td>";
       echo "<tr/>";
       
      
@@ -114,7 +114,7 @@
     while($linha=mysqli_fetch_assoc($sql)){
       $idProd = $linha['idProd'];        
       $NomeProd = $linha["NomeProd"];
-      $preco = $linha["Puni"];
+      $preco = $linha["Preco"];
       $qtd = 01;             
     }
     $url ="../../_HTML/_venda/venda.php?produto=". urlencode($NomeProd)."&preco=".urlencode($preco)."&quantidade=".urldecode($qtd)."&id=".urldecode($idProd);

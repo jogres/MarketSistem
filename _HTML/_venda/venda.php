@@ -67,7 +67,8 @@
                 <input type="text"  name="troco" id="troco" value="<?php echo $troco; ?>" readonly>
               </fieldset>
               <input type="hidden" name="submitted" value="1">
-              <button type="submit">Imprimir</button>
+              <button type="submit" name="submitte" id="submitte">Imprimir</button>
+              <button type="submit" name="Fim" id="Fim">Fim</button>
             </fieldset>
             <script>
               // Obtenha a data e hora atuais
