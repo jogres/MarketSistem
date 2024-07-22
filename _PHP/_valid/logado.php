@@ -32,6 +32,7 @@
   if($nivel === 'usuario' ){
     $menu =array(
       '../_stoc/stoc.php' => 'Produtos' ,
+      '../_venda/devo.php' => 'Devolucion',
       '../_venda/venda.php' => 'Vender'
     );
   }

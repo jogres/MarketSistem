@@ -49,6 +49,7 @@
           $produto = $_GET['produto'];
           $preco = $_GET['preco'];
           $id = $_GET['id'];
+          $codB = $_GET['codbar'];
         }
       ?>
       <textarea name="view" id="view">
@@ -56,9 +57,11 @@
           echo $produto. " | " .$preco;
         ?>
       </textarea>
-      <input type="text" name="produto" id="produto" value="<?php echo $produto;?>">
-      <input type="text" name="preco" id="preco" value="<?php echo $preco;?>">
-      <input type="text" name="id" id="id" value="<?php echo $id;?>">
+      <input type="hidden" name="produto" id="produto" value="<?php echo $produto;?>">
+      <input type="hidden" name="preco" id="preco" value="<?php echo $preco;?>">
+      <input type="hidden" name="id" id="id" value="<?php echo $id;?>">
+      <input type="hidden" name="codb" id="codb" value="<?php echo $codB;?>">
+      <button type="submit">Tiket</button>
     </form>
     <script>
       // Obtenha a data e hora atuais

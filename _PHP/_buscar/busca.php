@@ -125,9 +125,10 @@
       $idProd = $linha['idProd'];        
       $NomeProd = $linha["NomeProd"];
       $preco = $linha["Preco"];
+      $codB = $linha['CodBar'];
              
     }
-    $url ="../../_HTML/_venda/devo.php?produto=". urlencode($NomeProd)."&preco=".urlencode($preco)."&id=".urldecode($idProd);
+    $url ="../../_HTML/_venda/devo.php?produto=". urlencode($NomeProd)."&preco=".urlencode($preco)."&id=".urldecode($idProd)."&codbar=".urldecode($codB);
     header("location:". $url);
   }
 ?>
