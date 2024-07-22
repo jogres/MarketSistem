@@ -120,4 +120,14 @@
     $url ="../../_HTML/_venda/venda.php?produto=". urlencode($NomeProd)."&preco=".urlencode($preco)."&quantidade=".urldecode($qtd)."&id=".urldecode($idProd);
     header("location:". $url);
   }
+  if(isset($_GET['codD'])){
+    while($linha=mysqli_fetch_assoc($sql)){
+      $idProd = $linha['idProd'];        
+      $NomeProd = $linha["NomeProd"];
+      $preco = $linha["Preco"];
+             
+    }
+    $url ="../../_HTML/_venda/devo.php?produto=". urlencode($NomeProd)."&preco=".urlencode($preco)."&id=".urldecode($idProd);
+    header("location:". $url);
+  }
 ?>

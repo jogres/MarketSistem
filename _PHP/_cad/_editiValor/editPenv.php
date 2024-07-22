@@ -17,9 +17,7 @@
   while($campo=mysqli_fetch_array($edit)){
     $nCP = $campo['ContProd']+$ContProd;
     $totalN = $nCP * $campo['Preco'];
-    $Cuni =  $Custo / $nCP ;
-    $Puni = $Preco / $nCP;
-    mysqli_query($conn,"UPDATE cadprod SET NomeProd = '$NomeProd', DesProd ='$DesProd', ContProd = '$nCP', CodBar ='$CodBar', Cuni = '$Cuni',Custo = '$Custo', Puni = '$Puni',Preco = '$Preco', total = '$totalN' WHERE idProd = '$id'");
+    mysqli_query($conn,"UPDATE cadprod SET NomeProd = '$NomeProd', DesProd ='$DesProd', ContProd = '$nCP', CodBar ='$CodBar', Custo = '$Custo', Preco = '$Preco', total = '$totalN' WHERE idProd = '$id'");
   }
   header("Location: ../../../_HTML/_stoc/stoc.php");
 

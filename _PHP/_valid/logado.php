@@ -7,11 +7,13 @@
       '../_stoc/listCli.php' => 'Clientes',
       '../_stoc/stoc.php' => 'Produtos',
       '../_venda/venda.php' => 'Vender',
+      '../_venda/devo.php' => 'Devolucion',
       '../_resumo/resumoAno.php' => 'Resumo'
       
     ),
     'usuario' => array(
       '../_stoc/stoc.php' => 'Produtos' ,
+      '../_venda/devo.php' => 'Devolucion',
       '../_venda/venda.php' => 'Vender'
     )
   );
