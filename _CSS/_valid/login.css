@@ -1,0 +1,82 @@
+/* Estilos Gerais */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login-form {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 2em;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Estilos do Fieldset */
+.login-fieldset {
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.login-legend {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Estilos dos Inputs */
+.login-input {
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+/* Estilos do Botão */
+.login-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.75em 1.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  display: block; /* Garante que o botão seja tratado como um bloco */
+  margin: 0 auto; /* Centraliza o botão horizontalmente */
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+/* Estilos da Mensagem de Erro */
+.error-message {
+  background-color: #f8d7da; /* Cor de fundo vermelho claro */
+  color: #721c24; /* Cor do texto vermelho escuro */
+  border: 1px solid #f5c6cb; /* Borda vermelho claro */
+  padding: 1em;
+  border-radius: 5px;
+  margin-bottom: 1em; /* Espaçamento entre a mensagem e o formulário */
+  text-align: center; /* Centraliza o texto da mensagem */
+  width: 100%; /* Garante que a mensagem ocupe toda a largura do formulário */
+  box-sizing: border-box; /* Inclui o padding e a borda na largura total */
+  position: absolute; /* Permite o posicionamento acima do formulário */
+  top: 20px; /* Ajuste a posição vertical conforme necessário */
+}

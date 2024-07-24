@@ -1,0 +1,140 @@
+/* Reset e estilo geral */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2em;
+}
+
+.sale-section {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.product-display {
+  flex: 1;
+}
+
+.product-textarea {
+  width: 100%;
+  height: 200px;
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #e9ecef;
+}
+
+.sale-form {
+  background-color: white;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove a borda dos fieldsets */
+.form-fieldset,
+.datetime-fieldset,
+.totals-fieldset {
+  border: none; /* Remove a borda do fieldset */
+  margin-bottom: 1em;
+}
+
+.datetime-input {
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #e9ecef;
+}
+
+.total-input,
+.troco-input {
+  width: calc(50% - 10px);
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.print-button,
+.end-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75em 1.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.print-button:hover,
+.end-button:hover {
+  background-color: #0056b3;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: flex-end;
+}
+
+.remove-form {
+  margin: 0;
+}
+
+.remove-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-button:hover {
+  background-color: #cc0000;
+}
+
+.payment-container {
+  margin-top: 2em;
+}
+
+.payment-form {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.payment-input {
+  padding: 0.75em;
+  border: 1px solid #007bff; /* Borda azul para destacar */
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 1.25em; /* Tamanho da fonte maior para melhor visibilidade */
+  width: 200px; /* Largura fixa para destaque */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+}
+
+.footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #007bff;
+  color: white;
+  font-size: 0.9em;
+  margin-top: 2em;
+  border-radius: 0 0 10px 10px;
+}
+
