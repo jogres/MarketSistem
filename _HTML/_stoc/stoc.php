@@ -8,68 +8,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro</title>
+  <link rel="stylesheet" href="../../_CSS/menu/menu.css">
+  <link rel="stylesheet" href="../../_CSS/_stoc/list.css">
 </head>
 <body>
-  <div>
-    <div>
-      <nav>
-        <ul>
-          <?php
-            foreach ($menu as $link => $nome) {
-              echo "<li><a href=\"$link\">$nome</a></li>";
-            }
-          ?>
-        </ul>
-        <div>
-          <?php 
-            
-           echo $nomeP;
-          ?>
-          <form action="../../_PHP/_valid/deslogar.php" method="post">
-            <button type="submit">Salir</button>
-          </form>
-        </div>
-      </nav>
-    </div>
-    <div>
-      <form action="../../_PHP/_buscar/busca.php" method="GET">
-        <input type="text" id="busca" name="busca" placeholder="Busqueda...">
-        <button type="submit" id="encontra" name="encontra">Encontar</button>
+  <div class="container">
+    <nav class="main-nav">
+      <button class="menu-toggle">☰</button>
+      <ul class="nav-links">
+        <?php
+          foreach ($menu as $link => $nome) {
+            echo "<li class='nav-item'><a class='nav-link' href=\"$link\">$nome</a></li>";
+          }
+        ?>
+      </ul>
+      <div class="nav-user-actions">
+        <span class="user-name">
+          <?php echo $nomeP; ?>
+        </span>
+        <form class="logout-form" action="../../_PHP/_valid/deslogar.php" method="post">
+          <button class="logout-button" type="submit">Salir</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="search-container">
+      <form class="search-form" action="../../_PHP/_buscar/busca.php" method="GET">
+        <input class="search-input" type="text" id="busca" name="busca" placeholder="Busqueda...">
+        <button class="search-button" type="submit" id="encontra" name="encontra">Encontar</button>
       </form>
     </div>
-    <div>
-      <div>
-        <table border="1">
-          <tr>
-            <td><strong>Nombre del producto</strong></td>
-            <td><strong>Provedor</strong></td>
-            <td><strong>Descripción del producto</strong></td>
-            <td><strong>Cantidad</strong></td>
-            <td><strong>Código de barras</strong></td>
-            <?php
-              if($nivel == 'admin'){
-                echo"<td><strong>Costo</strong></td>";
-              }
-            ?>
-            <td><strong>Precio</strong></td>
-            <?php
-              if($nivel == 'admin'){
-                echo"<td><strong>Total</strong></td>";
-              }
-            ?>
-          </tr>
-          
+
+    <div class="content">
+      <div class="table-container">
+        <table class="data-table" >
+          <thead>
+            <tr>
+              <th><strong>Nombre del producto</strong></th>
+              <th><strong>Provedor</strong></th>
+              <th><strong>Descripción del producto</strong></th>
+              <th><strong>Cantidad</strong></th>
+              <th><strong>Código de barras</strong></th>
+              <?php
+                if($nivel == 'admin'){
+                  echo "<th><strong>Costo</strong></th>";
+                }
+              ?>
+              <th><strong>Precio</strong></th>
+              <?php
+                if($nivel == 'admin'){
+                  echo "<th><strong>Total</strong></th>";
+                }
+              ?>
+            </tr>
+          </thead>
+          <tbody>
             <?php 
               include('../../_PHP/_stoc/stoc.php');
-            ?>            
-          
+            ?>
+          </tbody>
         </table>
-        
       </div>
     </div>
-    <div>
-      <footer></footer>
-    </div>
-  </div>  
+
+    <footer class="footer"></footer>
+    <script src="../../_js/_menu/menu.js"></script> 
+  </div>
 </body>
 </html>

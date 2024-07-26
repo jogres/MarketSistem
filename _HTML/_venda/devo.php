@@ -8,67 +8,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro</title>
+  <link rel="stylesheet" href="../../_CSS/menu/menu.css">
+  <link rel="stylesheet" href="../../_CSS/_venda/devo.css">
 </head>
 <body>
-  <div>
-    <div>
-      <nav>
-        <ul>
-          <?php
-            foreach ($menu as $link => $nome) {
-              echo "<li><a href=\"$link\">$nome</a></li>";
-            }
-          ?>
-        </ul>
-        <div>
-          <?php 
-           echo $nomeP;
-            
-          ?>
-          <form action="../../_PHP/_valid/deslogar.php" method="post">
-            <button type="submit">Salir</button>
-          </form>
-        </div>
-      </nav>
-    </div>
-    <div>
-      <form action="../../_PHP/_buscar/busca.php" method="GET">
-        <input type="number" id="busca" name="busca" placeholder="Busqueda...">
-        <button type="submit" id="codD" name="codD">Encontar</button>
+  <div class="container">
+    <nav class="main-nav">
+      <button class="menu-toggle">☰</button>
+      <ul class="nav-links">
+        <?php
+          foreach ($menu as $link => $nome) {
+            echo "<li class='nav-item'><a class='nav-link' href=\"$link\">$nome</a></li>";
+          }
+        ?>
+      </ul>
+      <div class="nav-user-actions">
+        <span class="user-name">
+          <?php echo $nomeP; ?>
+        </span>
+        <form class="logout-form" action="../../_PHP/_valid/deslogar.php" method="post">
+          <button class="logout-button" type="submit">Salir</button>
+        </form>
+      </div>
+    </nav>
+    
+    <div class="search-container">
+      <form class="search-form" action="../../_PHP/_buscar/busca.php" method="GET">
+        <input class="search-input" type="number" id="busca" name="busca" placeholder="Busqueda...">
+        <button class="search-button" type="submit" id="codD" name="codD">Encontar</button>
       </form>
-      
     </div>
-    <form action="../../_PHP/_venda/devo.php" method="post">
-      <input type="datetime-local" id="data" name="data" readonly>
+
+    <form class="product-form" action="../../_PHP/_venda/devo.php" method="post">
+      <input class="datetime-input" type="datetime-local" id="data" name="data" readonly>
 
       <?php
         $produto = ""; 
         $preco = ""; 
         $id = ""; 
-        if(isset($_GET['produto'],$_GET['preco'],$_GET['id'])){
+        $codB = ""; 
+        if(isset($_GET['produto'],$_GET['preco'],$_GET['id'],$_GET['codbar'])){
           $produto = $_GET['produto'];
           $preco = $_GET['preco'];
           $id = $_GET['id'];
           $codB = $_GET['codbar'];
         }
       ?>
-      <textarea name="view" id="view">
-        <?php
-          echo $produto. " | " .$preco;
-        ?>
+      <textarea class="view-textarea" name="view" id="view" disabled>
+        <?php echo htmlspecialchars($produto . "  " . $preco); ?>
       </textarea>
-      <input type="hidden" name="produto" id="produto" value="<?php echo $produto;?>">
-      <input type="hidden" name="preco" id="preco" value="<?php echo $preco;?>">
-      <input type="hidden" name="id" id="id" value="<?php echo $id;?>">
-      <input type="hidden" name="codb" id="codb" value="<?php echo $codB;?>">
-      <button type="submit">Tiket</button>
+      <input type="hidden" name="produto" id="produto" value="<?php echo htmlspecialchars($produto); ?>">
+      <input type="hidden" name="preco" id="preco" value="<?php echo htmlspecialchars($preco); ?>">
+      <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($id); ?>">
+      <input type="hidden" name="codb" id="codb" value="<?php echo htmlspecialchars($codB); ?>">
+      <button class="submit-button" type="submit">Tiket</button>
     </form>
-    <div>
-      <footer></footer>
-    </div>
-    <script src="../../_js/_venda/data.js"></script>   
+
+    <footer class="footer"></footer>
+    <script src="../../_js/_venda/data.js"></script>  
+    <script src="../../_js/_menu/menu.js"></script>  
   </div>
-  
-              
 </body>
 </html>

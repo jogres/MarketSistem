@@ -1,0 +1,132 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo para o corpo */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Estilo para o container principal */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2em;
+}
+
+/* Conteúdo */
+.content-container {
+  padding: 2em;
+}
+
+.data-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.data-list li {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+/* Estilo dos links para parecerem botões quadrados */
+.link-item {
+  display: inline-block;
+  text-decoration: none;
+  color: #007bff;
+  padding: 0.5em 1em;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  font-weight: bold;
+  text-align: center;
+  width: auto;
+  height: auto;
+  min-width: 100px; /* Ajusta a largura mínima para o link */
+}
+
+.link-item:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3;
+  transform: scale(1.05);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1em; /* Ajuste o espaço abaixo do título conforme necessário */
+}
+
+/* Media Queries para Responsividade */
+
+/* Tablets e dispositivos móveis em orientação vertical */
+@media (max-width: 768px) {
+  .container {
+    padding: 1em; /* Reduz o padding para telas menores */
+  }
+
+  .content-container {
+    padding: 1em; /* Reduz o padding do conteúdo */
+  }
+
+  .data-list li {
+    padding: 0.75em; /* Reduz o padding dos itens da lista */
+  }
+
+  .link-item {
+    padding: 0.5em; /* Ajusta o padding dos links */
+    min-width: 80px; /* Ajusta a largura mínima dos links */
+  }
+
+  h1 {
+    font-size: 1.5em; /* Ajusta o tamanho da fonte do título */
+    margin-bottom: 0.5em; /* Ajusta a margem inferior do título */
+  }
+}
+
+/* Dispositivos móveis em orientação horizontal e pequenas telas */
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5em; /* Reduz ainda mais o padding para telas muito pequenas */
+  }
+
+  .content-container {
+    padding: 0.5em; /* Reduz o padding do conteúdo */
+  }
+
+  .data-list li {
+    padding: 0.5em; /* Reduz o padding dos itens da lista */
+  }
+
+  .link-item {
+    padding: 0.5em; /* Ajusta o padding dos links */
+    min-width: 60px; /* Ajusta a largura mínima dos links */
+    font-size: 0.9em; /* Ajusta o tamanho da fonte dos links */
+  }
+
+  h1 {
+    font-size: 1.2em; /* Ajusta o tamanho da fonte do título */
+    margin-bottom: 0.5em; /* Ajusta a margem inferior do título */
+  }
+}
+/* Estilo para o rodapé */
+.footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #007bff;
+  color: white;
+  font-size: 0.9em;
+  margin-top: 2em;
+  border-radius: 0 0 10px 10px;
+}

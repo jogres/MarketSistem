@@ -11,80 +11,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro</title>
+  <link rel="stylesheet" href="../../_CSS/menu/menu.css">
+  <link rel="stylesheet" href="../../_CSS/_cad/cad.css">
 </head>
 <body>
-  <div>
-    <div>
-      <nav>
-        <ul>
+  <div >
+      <nav class="main-nav">
+        <button class="menu-toggle">☰</button>
+        <ul class="nav-links">
           <?php
             foreach ($menu as $link => $nome) {
-              echo "<li><a href=\"$link\">$nome</a></li>";
+              echo "<li class='nav-item'><a class='nav-link' href=\"$link\">$nome</a></li>";
             }
           ?>
         </ul>
-        <div>
-          <?php 
-           echo $nomeP;
-          ?>
-          <form action="../../_PHP/_valid/deslogar.php" method="post">
-            <button type="submit">Salir</button>
+        <div class="nav-user-actions">
+          <span class="user-name"><?php echo $nomeP; ?></span>
+          <form class="logout-form" action="../../_PHP/_valid/deslogar.php" method="post">
+            <button class="logout-button" type="submit">Salir</button>
           </form>
         </div>
       </nav>
-    </div>
-    <div>
-      <div>
+    
+    <div class="search-container">
+      <div class="search-form">
         <form method="post" action="../../_PHP/_cad/_cadProd/cadProd.php">
           <fieldset>
             <p>
               <label for="NomeProd">Nombre del producto: </label> 
-              <input type="text" id="NomeProd" name="NomeProd">
+              <input class="search-input" type="text" id="NomeProd" name="NomeProd" required>
             </p>
             <p>
               <label for="idFor">Proveedor: </label> 
-              <select name="idFor" id="idFor">
+              <select class="search-select" name="idFor" id="idFor" required>
                 <?php
-
                   include ('../../_PHP/_cad/_cadProd/busca.php');
-
                 ?>
-               
-                
               </select>
-                
             </p>
             <p>
               <label for="DesProd">Descripción del producto: </label> 
-              <textarea name="DesProd" id="DesProd" cols="20" rows="5"></textarea>
+              <textarea class="search-textarea" name="DesProd" id="DesProd" cols="20" rows="5" required></textarea>
             </p>
             <p>
-               <label for="ContProd">Cantidad: </label>
-               <input type="number" id="ContProd" name="ContProd">
+              <label for="ContProd">Cantidad: </label>
+              <input class="search-input" type="number" id="ContProd" name="ContProd" required>
             </p>    
             <p>
               <label for="CodBar">Código de barras: </label> 
-              <input type="text" id="CodBar" name="CodBar">
+              <input class="search-input" type="text" id="CodBar" name="CodBar" required>
             </p>
             <p>
               <label for="Costo">Costo: </label>
-              <input type="number" min="0.00" step="0.01" id="Costo" name="Costo">
+              <input class="search-input" type="number" min="0.00" step="0.01" id="Costo" name="Costo" required>
             </p>
             <p>
               <label for="Preco">Precio: </label>
-              <input type="number" min="0.00" step="0.01" id="Preco" name="Preco">
+              <input class="search-input" type="number" min="0.00" step="0.01" id="Preco" name="Preco" required>
             </p>
-             
           </fieldset>
-          <div>
-            <button type="submit" name="submit">guardar</button>
+          <div class="subbt">
+            <button class="search-button" type="submit" name="submit">guardar</button>
           </div>
         </form>
       </div>
     </div>
     <div>
-      <footer></footer>
+      <footer class="footer"></footer>
     </div>
-  </div>  
+  </div>
+  <script src="../../_js/_menu/menu.js"></script>  
 </body>
 </html>

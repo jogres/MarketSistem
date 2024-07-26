@@ -1,0 +1,209 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo para o corpo */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Estilo para o container principal */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2em;
+}
+
+/* Estilo para a tabela de calendário */
+.calendario {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em auto; /* Margem automática para centralizar a tabela */
+  background-color: #ffffff; /* Cor de fundo da tabela */
+  max-width: 1000px; /* Limita a largura máxima da tabela para um layout mais controlado */
+}
+
+.calendario th, .calendario td {
+  border: 1px solid #007bff; /* Cor das bordas das células, ajustada ao esquema de cores */
+  padding: 0.75em;
+  text-align: center;
+}
+
+.calendario th {
+  background-color: #007bff; /* Cor de fundo dos cabeçalhos */
+  color: white; /* Cor do texto dos cabeçalhos */
+  font-weight: bold;
+}
+
+.calendario td a {
+  color: #007bff; /* Cor dos links */
+  text-decoration: none; /* Remove o sublinhado dos links */
+  font-weight: bold; /* Deixa o texto dos links em negrito */
+}
+
+.calendario td a:hover {
+  text-decoration: underline; /* Sublinha o texto quando o mouse passa sobre o link */
+}
+
+.calendario tr:nth-child(even) {
+  background-color: #f9f9f9; /* Cor de fundo para linhas pares */
+}
+
+.calendario tr:nth-child(odd) {
+  background-color: #ffffff; /* Cor de fundo para linhas ímpares */
+}
+
+.calendario tr:hover {
+  background-color: #e6e6e6; /* Cor de fundo ao passar o mouse sobre a linha */
+}
+
+.calendario .day-header {
+  background-color: #0056b3; /* Cor de fundo para os cabeçalhos dos dias */
+  color: white; /* Cor do texto dos cabeçalhos dos dias */
+  font-weight: bold;
+  padding: 0.5em;
+}
+
+/* Estilo para a tabela de dia */
+.dia {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em auto; /* Margem automática para centralizar a tabela */
+  background-color: #ffffff; /* Cor de fundo da tabela */
+  max-width: 600px; /* Limita a largura máxima da tabela para um layout mais controlado */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade à tabela */
+}
+
+.dia th, .dia td {
+  border: 1px solid #007bff; /* Cor das bordas das células, ajustada ao esquema de cores */
+  padding: 0.75em;
+  text-align: center;
+}
+
+.dia th {
+  background-color: #007bff; /* Cor de fundo dos cabeçalhos */
+  color: white; /* Cor do texto dos cabeçalhos */
+  font-weight: bold;
+}
+
+.dia td {
+  background-color: #f9f9f9; /* Cor de fundo das células */
+}
+
+.dia td a {
+  color: #007bff; /* Cor dos links */
+  text-decoration: none; /* Remove o sublinhado dos links */
+  font-weight: bold; /* Deixa o texto dos links em negrito */
+}
+
+.dia td a:hover {
+  text-decoration: underline; /* Sublinha o texto quando o mouse passa sobre o link */
+}
+
+.dia tr:nth-child(even) {
+  background-color: #e6e6e6; /* Cor de fundo para linhas pares */
+}
+
+.dia tr:nth-child(odd) {
+  background-color: #ffffff; /* Cor de fundo para linhas ímpares */
+}
+
+.dia tr:hover {
+  background-color: #d0d0d0; /* Cor de fundo ao passar o mouse sobre a linha */
+}
+
+/* Estilo para células que contêm links */
+.dia .link-cell {
+  background-color: #ffffff; /* Cor de fundo para células com links */
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+/* Estilo para links com a classe 'total' */
+a.total {
+  display: block; /* Faz o link se comportar como um bloco para centralização */
+  text-align: center; /* Centraliza o texto dentro do link */
+  color: #007bff; /* Cor do texto padrão */
+  text-decoration: none; /* Remove o sublinhado padrão do link */
+  padding: 0.5em 1em; /* Adiciona algum espaçamento interno */
+  border-radius: 5px; /* Adiciona bordas arredondadas */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave para a cor de fundo e do texto */
+}
+
+a.total:hover {
+  background-color: #0056b3; /* Cor de fundo quando o mouse está sobre o link */
+  color: white; /* Cor do texto quando o mouse está sobre o link */
+}
+
+/* Media Queries para Responsividade */
+
+/* Tablets e dispositivos móveis em orientação vertical */
+@media (max-width: 768px) {
+  .container {
+    padding: 1em; /* Reduz o padding para telas menores */
+  }
+
+  .calendario, .dia {
+    max-width: 100%; /* Remove o limite de largura máxima para uma melhor adaptação em telas menores */
+  }
+
+  .calendario th, .calendario td, .dia th, .dia td {
+    padding: 0.5em; /* Reduz o padding das células */
+    font-size: 0.9em; /* Ajusta o tamanho da fonte para telas menores */
+  }
+
+  h1, h2 {
+    font-size: 1.5em; /* Ajusta o tamanho da fonte dos títulos */
+    margin-bottom: 0.5em; /* Ajusta a margem inferior dos títulos */
+  }
+
+  a.total {
+    padding: 0.5em; /* Ajusta o padding dos links */
+    min-width: 80px; /* Ajusta a largura mínima dos links */
+  }
+}
+
+/* Dispositivos móveis em orientação horizontal e pequenas telas */
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5em; /* Reduz ainda mais o padding para telas muito pequenas */
+  }
+
+  .calendario, .dia {
+    max-width: 100%; /* Garante que as tabelas usem toda a largura disponível */
+  }
+
+  .calendario th, .calendario td, .dia th, .dia td {
+    padding: 0.5em; /* Reduz o padding das células */
+    font-size: 0.8em; /* Ajusta o tamanho da fonte para telas muito pequenas */
+  }
+
+  h1, h2 {
+    font-size: 1.2em; /* Ajusta o tamanho da fonte dos títulos */
+    margin-bottom: 0.5em; /* Ajusta a margem inferior dos títulos */
+  }
+
+  a.total {
+    padding: 0.5em; /* Ajusta o padding dos links */
+    min-width: 60px; /* Ajusta a largura mínima dos links */
+    font-size: 0.9em; /* Ajusta o tamanho da fonte dos links */
+  }
+}
+/* Estilo para o rodapé */
+.footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #007bff;
+  color: white;
+  font-size: 0.9em;
+  margin-top: 2em;
+  border-radius: 0 0 10px 10px;
+}

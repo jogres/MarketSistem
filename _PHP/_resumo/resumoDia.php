@@ -10,12 +10,12 @@
     $nomeMes = $meses[$mes - 1];
     $Total = 0;
     echo "<h1>$nomeMes $ano</h1>";
-    echo "<a href='resumo.php?ano=$ano&mes=$mes'>Resumo del Mes</a>";
+    echo "<a href='resumo.php?ano=$ano&mes=$mes' class='total'>Resumo del Mes</a>";
     // Calcula o número de dias no mês
     $diasNoMes = cal_days_in_month(CAL_GREGORIAN, $mes, $ano);
 
     // Gera o calendário
-    echo "<table border='1'>";
+    echo "<table class='calendario' border='1'>";
     echo "<tr>";
     for ($dia = 1; $dia <= $diasNoMes; $dia++) {
       // Consulta ao banco de dados para verificar se há registros para esse dia, mês e ano
@@ -64,7 +64,7 @@
 
     if ($result_vendas && $result_total_devolucoes) {
       echo "<h2>Vendas e Devoluções de $dia/$mes/$ano</h2>";
-      echo "<table border='1'>";
+      echo "<table class='dia' border='1'>";
       echo "<tr><th>Data</th><th>Nome</th><th>Quantidade</th><th>Preço</th><th>Total</th><th>Total de Devoluções</th></tr>";
 
       while ($row = mysqli_fetch_assoc($result_vendas)) {

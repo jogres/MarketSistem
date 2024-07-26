@@ -1,0 +1,240 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo para o corpo */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Estilo para o container principal */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2em;
+}
+
+/* Estilo para os links */
+a {
+  color: #0000ff; /* Cor dos links azul */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.subbt {
+  display: flex;
+  justify-content: center;
+}
+
+/* Estilo para botões */
+button {
+  background-color: #0000ff; /* Fundo azul */
+  color: #ffffff; /* Texto branco */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Adiciona transição suave */
+}
+
+button:hover {
+  background-color: #ffffff; /* Fundo branco */
+  color: #0000ff; /* Texto azul */
+  border: 1px solid #0000ff;
+  transform: scale(1.05); /* Aumenta o botão quando o mouse passa sobre ele */
+}
+
+/* Estilo para inputs e textarea */
+input[type="text"], input[type="password"], input[type="email"], textarea, input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0; /* Ajuste do espaçamento entre os inputs */
+  border: 1px solid #0000ff;
+  border-radius: 5px;
+  box-sizing: border-box; /* Inclui padding e border no width */
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus, input[type="number"]:focus {
+  border-color: #0000ff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}
+
+/* Estilo para fieldset */
+fieldset {
+  border: 1px solid #0000ff; /* Borda azul */
+  border-radius: 5px;
+  padding: 15px; /* Ajuste do padding interno */
+  margin: 10px 0;
+  background-color: #f5f5f5; /* Fundo levemente cinza para destacar */
+  box-sizing: border-box; /* Inclui padding e border no width */
+}
+
+fieldset legend {
+  color: #0000ff; /* Cor do texto do legend azul */
+  font-weight: bold;
+  padding: 0 5px; /* Ajusta o espaçamento ao redor do legend */
+}
+
+/* Estilo para o rodapé da página */
+.footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #007bff; /* Azul mais escuro */
+  color: white;
+  font-size: 0.9em;
+  margin-top: 2em;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Estilo para o container de pesquisa */
+.search-container {
+  display: flex;
+  
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  padding: 20px 0; /* Adiciona um padding para criar espaço ao redor do contêiner */
+}
+
+/* Estilo para o formulário de pesquisa dentro do search-container */
+.search-form {
+  width: 100%; /* Faz o formulário ocupar 100% da largura disponível do search-container */
+  max-width: 600px; /* Define uma largura máxima para o formulário */
+  flex-direction: column;
+}
+
+
+
+/* Estilo para o grupo de botões de rádio */
+.radio-group {
+  display: flex;
+  flex-direction: column; /* Alinha os botões de rádio em coluna */
+  margin: 10px 0; /* Adiciona espaço em cima e embaixo do grupo de botões de rádio */
+}
+
+/* Estilo para cada label dentro do radio-group */
+.radio-group label {
+  display: flex;
+  align-items: center; /* Alinha o texto e o botão de rádio verticalmente */
+  margin-bottom: 10px; /* Espaçamento entre os botões de rádio */
+  font-size: 16px; /* Ajusta o tamanho da fonte */
+}
+
+/* Estilo para os botões de rádio */
+.radio-group input[type="radio"] {
+  margin-right: 10px; /* Espaço entre o botão de rádio e o texto */
+  accent-color: #0000ff; /* Cor personalizada para o botão de rádio (para navegadores que suportam) */
+}
+
+/* Estilo para o seletor com a classe search-select */
+.search-select {
+  width: 100%; /* Faz o seletor ocupar toda a largura disponível */
+  padding: 10px; /* Adiciona preenchimento interno para o seletor */
+  border: 1px solid #0000ff; /* Borda azul */
+  border-radius: 5px; /* Arredonda os cantos do seletor */
+  background-color: #ffffff; /* Cor de fundo branca */
+  color: #0000ff; /* Cor do texto azul */
+  font-size: 16px; /* Tamanho da fonte */
+  box-sizing: border-box; /* Inclui padding e border no width */
+  cursor: pointer; /* Cursor em forma de ponteiro para indicar interatividade */
+}
+
+/* Estilo para o seletor ao passar o mouse */
+.search-select:hover {
+  border-color: #0056b3; /* Cor da borda ao passar o mouse */
+  background-color: #f0f8ff; /* Cor de fundo levemente azulada ao passar o mouse */
+}
+
+/* Estilo para o seletor ao focar */
+.search-select:focus {
+  border-color: #0000ff; /* Cor da borda ao focar */
+  outline: none; /* Remove o contorno padrão ao focar */
+  background-color: #e6f0ff; /* Cor de fundo mais clara ao focar */
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.3); /* Adiciona uma sombra azul clara ao redor */
+}
+
+/* Estilo para o textarea com a classe search-textarea */
+.search-textarea {
+  width: 100%; /* Faz o textarea ocupar toda a largura disponível */
+  padding: 10px; /* Adiciona preenchimento interno */
+  border: 1px solid #0000ff; /* Borda azul */
+  border-radius: 5px; /* Arredonda os cantos */
+  background-color: #ffffff; /* Cor de fundo branca */
+  color: #0000ff; /* Cor do texto azul */
+  font-size: 16px; /* Tamanho da fonte */
+  box-sizing: border-box; /* Inclui padding e border no width */
+  resize: vertical; /* Permite redimensionar verticalmente */
+  min-height: 100px; /* Define uma altura mínima */
+  cursor: text; /* Cursor em forma de texto para indicar onde o usuário pode digitar */
+}
+
+/* Estilo para o textarea ao passar o mouse */
+.search-textarea:hover {
+  border-color: #0056b3; /* Cor da borda ao passar o mouse */
+  background-color: #f0f8ff; /* Cor de fundo levemente azulada ao passar o mouse */
+}
+
+/* Estilo para o textarea ao focar */
+.search-textarea:focus {
+  border-color: #0000ff; /* Cor da borda ao focar */
+  outline: none; /* Remove o contorno padrão ao focar */
+  background-color: #e6f0ff; /* Cor de fundo mais clara ao focar */
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.3); /* Adiciona uma sombra azul clara ao redor */
+}
+
+
+
+
+
+
+/* Media Queries para responsividade */
+
+/* Para telas menores que 768px */
+@media (max-width: 768px) {
+  .container {
+    padding: 1em; /* Reduz o padding em telas menores */
+  }
+
+  .search-form {
+    max-width: 100%; /* Remove a largura máxima para telas menores */
+  }
+
+  .data-table {
+    font-size: 14px; /* Reduz o tamanho da fonte para tabelas em telas menores */
+  }
+
+  .form-input, .search-textarea {
+    font-size: 14px; /* Reduz o tamanho da fonte para inputs e textarea */
+  }
+
+  .footer {
+    font-size: 0.8em; /* Reduz o tamanho da fonte do rodapé */
+  }
+}
+
+/* Para telas menores que 480px */
+@media (max-width: 480px) {
+  .data-table th, .data-table td {
+    font-size: 12px; /* Reduz ainda mais o tamanho da fonte da tabela */
+  }
+
+  .form-input, .search-textarea {
+    font-size: 12px; /* Reduz o tamanho da fonte para inputs e textarea */
+  }
+
+  .search-button {
+    width: 100%; /* Faz o botão ocupar toda a largura disponível */
+  }
+
+  .radio-group {
+    flex-direction: column; /* Mantém os botões de rádio em coluna */
+  }
+}

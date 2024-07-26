@@ -1,0 +1,164 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo para o corpo */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2em;
+}
+
+/* Estilo para o formulário de busca */
+.search-container {
+  margin: 2em 0;
+}
+
+.search-form {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap; /* Permite quebra de linha em dispositivos menores */
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  min-width: 200px; /* Adiciona largura mínima para dispositivos menores */
+}
+
+.search-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75em 1.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para o formulário de produto */
+.product-form {
+  margin: 2em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza o botão horizontalmente */
+}
+
+.datetime-input {
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.view-textarea {
+  width: 100%;
+  height: 100px;
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75em 1.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para o rodapé */
+.footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #007bff;
+  color: white;
+  font-size: 0.9em;
+  margin-top: 2em;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Media Queries */
+
+/* Para telas pequenas (smartphones, 600px ou menos) */
+@media (max-width: 600px) {
+  .search-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-input {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+
+  .view-textarea {
+    width: 100%;
+    height: auto;
+  }
+
+  .datetime-input {
+    width: 100%;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
+}
+
+/* Para telas médias (tablets, 768px ou menos) */
+@media (max-width: 768px) {
+  .search-form {
+    flex-direction: column;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+
+  .product-form {
+    padding: 1em;
+  }
+}
+
+/* Para telas grandes (desktops e maiores) */
+@media (min-width: 1200px) {
+  .search-form {
+    gap: 1em;
+  }
+
+  .search-input {
+    min-width: 300px; /* Maior largura mínima para telas grandes */
+  }
+}

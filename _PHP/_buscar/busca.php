@@ -4,112 +4,130 @@
   $conn = new mysqli("localhost", "root", "", "market");
   $termo = $_GET['busca'];
   
-  $sql = mysqli_query($conn, "SELECT cadprod.*, cadfor.NomeFor FROM cadprod  INNER JOIN cadfor  ON cadprod.idFor = cadfor.idFor WHERE cadprod.NomeProd LIKE '%$termo%' OR cadprod.DesProd LIKE '%$termo%' OR cadprod.CodBar LIKE '%$termo%' OR cadfor.NomeFor LIKE '%$termo%'");
+  $sql = mysqli_query($conn, "SELECT cadprod.*, cadfor.NomeFor FROM cadprod INNER JOIN cadfor ON cadprod.idFor = cadfor.idFor WHERE cadprod.NomeProd LIKE '%$termo%' OR cadprod.DesProd LIKE '%$termo%' OR cadprod.CodBar LIKE '%$termo%' OR cadfor.NomeFor LIKE '%$termo%'");
 
   if (!$sql) {
     die("Erro na consulta: " . mysqli_error($conn));
   }
-  
+
+  // Começo do HTML
+  echo '<!DOCTYPE html>';
+  echo '<html lang="es-ar">';
+  echo '<head>';
+  echo '  <meta charset="UTF-8">';
+  echo '  <meta name="viewport" content="width=device-width, initial-scale=1.0">';
+  echo '  <title>Registro</title>';
+  echo '  <link rel="stylesheet" href="../../_CSS/menu/menu.css">'; // Vincule o CSS aqui
+  echo '  <link rel="stylesheet" href="../../_CSS/_stoc/list.css">'; // Vincule o CSS aqui
+  echo '</head>';
+  echo '<body>';
+
+  // Conteúdo do HTML gerado dinamicamente
   if(isset($_GET['encontra']) && $nivel=='admin'){ 
-    
-    echo"<div>";
-    echo"<nav>";
-    echo"<ul>";
-    echo"<li><a href='../../_HTML/_cad/cadProd.php'>Registro Produtos</a></li>";
-    echo"<li><a href='../../_HTML/_cad/cadFun.php'>Registro Empleados</a></li>";
-    echo"<li><a href='../../_HTML/_cad/cadFor.php'>Registro Provedores</a></li>";
-    echo"<li><a href='../../_HTML/_stoc/stoc.php'>Produtos</a></li>";
-    echo"<li><a href='../../_HTML/_venda/venda.php'>Vender</a></li>";
-    echo"</ul>";
-    echo"<div>";
-    echo $nomeP;
-    echo"<form action='../../_PHP/_valid/deslogar.php' method='post'>";
-    echo"<button type='submit'>Salir</button>";
-    echo"</form>";
-    echo"</div>";
-    echo"</nav>";
-    echo"</div>";
+    echo '<div>';
+    echo '  <nav class="main-nav">';
+    echo '    <button class="menu-toggle">☰</button>';
+    echo '    <ul class="nav-links">';
+    echo '      <li><a href="../../_HTML/_cad/cadProd.php" class="nav-link">Registro Produtos</a></li>';
+    echo '      <li><a href="../../_HTML/_cad/cadFun.php" class="nav-link">Registro Empleados</a></li>';
+    echo '      <li><a href="../../_HTML/_cad/cadFor.php" class="nav-link">Registro Provedores</a></li>';
+    echo '      <li><a href="../../_HTML/_stoc/stoc.php" class="nav-link">Produtos</a></li>';
+    echo '      <li><a href="../../_HTML/_venda/venda.php" class="nav-link">Vender</a></li>';
+    echo '    </ul>';
+    echo '    <div class="nav-user-actions">';
+    echo '      <span class="user-name">' . $nomeP . '</span>';
+    echo '      <form class="logout-form" action="../../_PHP/_valid/deslogar.php" method="post">';
+    echo '        <button class="logout-button" type="submit">Salir</button>';
+    echo '      </form>';
+    echo '    </div>';
+    echo '  </nav>';
 
-    echo "<div>";
-    echo "<table border='1'>";
-    echo"<tr>";
-    echo"<td><strong>Nombre del producto</strong></td>";
-    echo"<td><strong>Provedor</strong></td>";
-    echo"<td><strong>Descripción del producto</strong></td>";
-    echo"<td><strong>Cantidad</strong></td>";
-    echo"<td><strong>Código de barras</strong></td>";
-    echo"<td><strong>Costo Unitario</strong></td>";
-    echo"<td><strong>Costo</strong></td>";
-    echo"<td><strong>Precio Unitario</strong></td>";
-    echo"<td><strong>Precio</strong></td>";
-    echo"<td><strong>Total</strong></td>";
-    
-    echo"</tr>";
+    echo '  <div class="content">';
+    echo '    <table class="data-table" border="1">';
+    echo '      <thead>';
+    echo '        <tr>';
+    echo '          <th><strong>Nombre del producto</strong></th>';
+    echo '          <th><strong>Provedor</strong></th>';
+    echo '          <th><strong>Descripción del producto</strong></th>';
+    echo '          <th><strong>Cantidad</strong></th>';
+    echo '          <th><strong>Código de barras</strong></th>';
+    echo '          <th><strong>Costo</strong></th>';
+    echo '          <th><strong>Precio</strong></th>';
+    echo '          <th><strong>Total</strong></th>';
+    echo '        </tr>';
+    echo '      </thead>';
+    echo '      <tbody>';
 
     while($linha=mysqli_fetch_assoc($sql)){
-      
-      
-      echo "<tr>";
-      echo "<td><a href='../../_HTML/_editValor/editProd.php?param=". $linha["idProd"]."'>". $linha["NomeProd"]."</a></td>";
-      echo "<td><a href='../../_HTML/_editValor/edit.php?param=". $linha["idFor"]."'>". $linha["NomeFor"] ."</a></td>";
-      echo "<td>". $linha["DesProd"] ."</td>";
-      echo "<td>". $linha["ContProd"] ."</td>";
-      echo "<td>". $linha["CodBar"] ."</td>";
-      echo "<td>$ ". number_format($linha["Cuni"],2) ."</td>";
-      echo "<td>$ ". number_format($linha["Custo"],2) ."</td>";
-      echo "<td>$ ". number_format($linha["Puni"],2) ."</td>";
-      echo "<td>$ ". number_format($linha["Preco"],2) ."</td>";
-      echo "<td>$ ". number_format($linha["Total"],2) ."</td>";
-      echo "<tr/>";
-      
-     
+      echo '        <tr>';
+      echo '          <td><a href="../../_HTML/_editValor/editProd.php?param='. $linha["idProd"].'">' . $linha["NomeProd"] . '</a></td>';
+      echo '          <td><a href="../../_HTML/_editValor/edit.php?param='. $linha["idFor"].'">' . $linha["NomeFor"] . '</a></td>';
+      echo '          <td>' . $linha["DesProd"] . '</td>';
+      echo '          <td>' . $linha["ContProd"] . '</td>';
+      echo '          <td>' . $linha["CodBar"] . '</td>';
+      echo '          <td>$ ' . number_format($linha["Custo"], 2) . '</td>';
+      echo '          <td>$ ' . number_format($linha["Preco"], 2) . '</td>';
+      echo '          <td>$ ' . number_format($linha["Total"], 2) . '</td>';
+      echo '        </tr>';
     }
-    echo "</table>";
-    echo "</div>";
+
+    echo '      </tbody>';
+    echo '    </table>';
+    echo '  </div>';
+    echo ' <footer class="footer">';
+    echo ' </footer>';
+    echo ' <script src="../../_js/_menu/menu.js"></script> ';
+    echo '</div>';
   }
+
   if(isset($_GET['encontra']) && $nivel=='usuario'){ 
-    
-    echo"<div>";
-    echo"<nav>";
-    echo"<ul>";
-    echo"<li><a href='../../_HTML/_stoc/stoc.php'>Produtos</a></li>";
-    echo"<li><a href='../../_HTML/_venda/venda.php'>Vender</a></li>";
-    echo"</ul>";
-    echo"<div>";
-    echo $nomeP;
-    echo"<form action='../../_PHP/_valid/deslogar.php' method='post'>";
-    echo"<button type='submit'>Salir</button>";
-    echo"</form>";
-    echo"</div>";
-    echo"</nav>";
-    echo"</div>";
+    echo '  <nav class="main-nav">';
+    echo '    <button class="menu-toggle">☰</button>';
+    echo '    <ul class="nav-links">';
+    echo '      <li><a href="../../_HTML/_stoc/stoc.php" class="nav-link">Produtos</a></li>';
+    echo '      <li><a href="../../_HTML/_venda/venda.php" class="nav-link">Vender</a></li>';
+    echo '    </ul>';
+    echo '    <div class="nav-user-actions">';
+    echo '      <span class="user-name">' . $nomeP . '</span>';
+    echo '      <form class="logout-form" action="../../_PHP/_valid/deslogar.php" method="post">';
+    echo '        <button class="logout-button" type="submit">Salir</button>';
+    echo '      </form>';
+    echo '    </div>';
+    echo '  </nav>';
 
-    echo "<div>";
-    echo "<table border='1'>";
-    echo"<tr>";
-    echo"<td><strong>Nombre del producto</strong></td>";
-    echo"<td><strong>Provedor</strong></td>";
-    echo"<td><strong>Descripción del producto</strong></td>";
-    echo"<td><strong>Cantidad</strong></td>";
-    echo"<td><strong>Código de barras</strong></td>";
-    echo"<td><strong>Precio</strong></td>";
-    echo"</tr>";
-   
+    echo '  <div class="content">';
+    echo '    <table class="data-table" border="1">';
+    echo '      <thead>';
+    echo '        <tr>';
+    echo '          <th><strong>Nombre del producto</strong></th>';
+    echo '          <th><strong>Provedor</strong></th>';
+    echo '          <th><strong>Descripción del producto</strong></th>';
+    echo '          <th><strong>Cantidad</strong></th>';
+    echo '          <th><strong>Código de barras</strong></th>';
+    echo '          <th><strong>Precio</strong></th>';
+    echo '        </tr>';
+    echo '      </thead>';
+    echo '      <tbody>';
+
     while($linha=mysqli_fetch_assoc($sql)){
-      
-      echo "<tr>";
-      echo "<td>". $linha["NomeProd"]."</td>";
-      echo "<td>". $linha["NomeFor"] ."</td>";
-      echo "<td>". $linha["DesProd"] ."</td>";
-      echo "<td>". $linha["ContProd"] ."</td>";
-      echo "<td>". $linha["CodBar"] ."</td>";
-      echo "<td>$ ". number_format($linha["Preco"],2) ."</td>";
-      echo "<tr/>";
-     
+      echo '        <tr>';
+      echo '          <td>' . $linha["NomeProd"] . '</td>';
+      echo '          <td>' . $linha["NomeFor"] . '</td>';
+      echo '          <td>' . $linha["DesProd"] . '</td>';
+      echo '          <td>' . $linha["ContProd"] . '</td>';
+      echo '          <td>' . $linha["CodBar"] . '</td>';
+      echo '          <td>$ ' . number_format($linha["Preco"], 2) . '</td>';
+      echo '        </tr>';
     }
-    echo "</table>";
-    echo "</div>";
+
+    echo '      </tbody>';
+    echo '    </table>';
+    echo '  </div>';
+    echo ' <footer class="footer">';
+    echo ' </footer>';
+    echo ' <script src="../../_js/_menu/menu.js"></script> ';
   }
+
   if(isset($_GET['codV'])){
     while($linha=mysqli_fetch_assoc($sql)){
       $idProd = $linha['idProd'];        
@@ -120,15 +138,19 @@
     $url ="../../_HTML/_venda/venda.php?produto=". urlencode($NomeProd)."&preco=".urlencode($preco)."&quantidade=".urldecode($qtd)."&id=".urldecode($idProd);
     header("location:". $url);
   }
+
   if(isset($_GET['codD'])){
     while($linha=mysqli_fetch_assoc($sql)){
       $idProd = $linha['idProd'];        
       $NomeProd = $linha["NomeProd"];
       $preco = $linha["Preco"];
       $codB = $linha['CodBar'];
-             
     }
     $url ="../../_HTML/_venda/devo.php?produto=". urlencode($NomeProd)."&preco=".urlencode($preco)."&id=".urldecode($idProd)."&codbar=".urldecode($codB);
     header("location:". $url);
   }
+
+  // Fecho do HTML
+  echo '</body>';
+  echo '</html>';
 ?>

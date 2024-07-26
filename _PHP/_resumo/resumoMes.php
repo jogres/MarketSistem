@@ -17,7 +17,7 @@
           
           // Se houver registros, exibe o link para o resumo do mês
           if ($total > 0) {
-              echo "<a href='resumoDia.php?ano=$ano&mes=$mes'>".$meses[$i]."</a> ";
+              echo "<a href='resumoDia.php?ano=$ano&mes=$mes'class='link-item'>".$meses[$i]."</a> ";
           }
       } else {
           echo "Erro na consulta: " . mysqli_error($conn);

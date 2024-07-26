@@ -1,0 +1,127 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo para o corpo */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Estilo para o container principal */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2em;
+}
+
+/* Estilo para o conteúdo principal */
+.content {
+  padding: 1em;
+}
+
+/* Estilo para a tabela */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+}
+
+.data-table th, .data-table td {
+  padding: 10px;
+  border: 1px solid #007bff;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Estilo para o container da tabela */
+.table-container {
+  background-color: #ffffff;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+/* Estilo para o rodapé da página */
+.footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #007bff;
+  color: white;
+  font-size: 0.9em;
+  margin-top: 2em;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Responsividade */
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 1.5em;
+  }
+
+  .data-table th, .data-table td {
+    padding: 8px;
+  }
+
+  .footer {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    padding: 1em;
+  }
+
+  .data-table th, .data-table td {
+    padding: 6px;
+  }
+
+  .footer {
+    font-size: 0.8em;
+    margin-top: 1.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5em;
+  }
+
+  .data-table {
+    font-size: 0.9em;
+  }
+
+  .data-table th, .data-table td {
+    padding: 5px;
+  }
+
+  .footer {
+    font-size: 0.7em;
+    margin-top: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5em;
+  }
+
+  .data-table th, .data-table td {
+    padding: 4px;
+  }
+
+  .footer {
+    font-size: 0.7em;
+    margin-top: 0.5em;
+  }
+}

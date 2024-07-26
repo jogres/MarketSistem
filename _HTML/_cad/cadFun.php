@@ -11,71 +11,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro</title>
+  <link rel="stylesheet" href="../../_CSS/menu/menu.css">
+  <link rel="stylesheet" href="../../_CSS/_cad/cad.css">
 </head>
 <body>
-  <div>
-    <div>
-      <nav>
-        <ul>
+  <div class="container">
+      <nav class="main-nav">
+        <button class="menu-toggle">☰</button>
+        <ul class="nav-links">
           <?php
             foreach ($menu as $link => $nome) {
-              echo "<li><a href=\"$link\">$nome</a></li>";
+              echo "<li class='nav-item'><a class='nav-link' href=\"$link\">$nome</a></li>";
             }
           ?>  
         </ul>
-        <div>
-          <?php 
-           echo $nomeP;
-          ?>
-          <form action="../../_PHP/_valid/deslogar.php" method="post">
-            <button type="submit">Salir</button>
+        <div class="nav-user-actions">
+          <span class="user-name"><?php echo $nomeP; ?></span>
+          <form class="logout-form" action="../../_PHP/_valid/deslogar.php" method="post">
+            <button class="logout-button" type="submit">Salir</button>
           </form>
         </div>
       </nav>
-    </div>
-    <div>
-      <div>
+          
+    <div class="search-container">
+      <div class="search-form">
         <form method="post" action="../../_PHP/_cad/cadFun.php">
           <fieldset>
             <p>
               <label for="NomeFun">Apelido: </label>
-              <input type="text" name="NomeFun" id="NomeFun">
+              <input class="search-input" type="text" name="NomeFun" id="NomeFun" required>
             </p>
             <p>
               <label for="Dni"> DNI: </label>
-              <input type="text" name="Dni" id="Dni">
+              <input class="search-input" type="text" name="Dni" id="Dni" required>
             </p>
             <p>
               <label for="EndFun">Dirección: </label>
-              <input type="text" name="EndFun" id="EndFun">
+              <input class="search-input" type="text" name="EndFun" id="EndFun" required>
             </p>
             <p>
               <label for="NumFun">Número del empleado: </label>
-              <input type="text" name="NumFun" id="NumFun">
+              <input class="search-input" type="text" name="NumFun" id="NumFun" required>
             </p>
             <p>
               <label for="EmailFun">E-MAIL del empleado: </label>
-              <input type="text" name="EmailFun" id="EmailFun">
+              <input class="search-input" type="email" name="EmailFun" id="EmailFun" required>
             </p>
             <p>
               <label for="CredAces">Clave de acceso: </label>
-              <input type="number" name="CredAces" id="CredAces">
+              <input class="search-input" type="number" name="CredAces" id="CredAces" required>
             </p>
             <p>
               <label for="CargoFun">Puesto: </label>
-              <input type="text" name="CargoFun" id="CargoFun">
+              <div class="radio-group">
+                <label><input type="radio" name="CargoFun" value="admin" required> Gerente</label>
+                <label><input type="radio" name="CargoFun" value="usuario" required> Empleado</label>
+                
+              </div>
             </p>
-             
           </fieldset>
-          <div>
-            <button type="submit" name="submit">guardar</button>
+          <div class="subbt">
+            <button class="search-button" type="submit" name="submit">guardar</button>
           </div>
-        </form>
       </div>
     </div>
     <div>
-      <footer></footer>
+      <footer class="footer"></footer>
     </div>
-  </div>  
+  </div>
+  <script src="../../_js/_menu/menu.js"></script> 
 </body>
 </html>

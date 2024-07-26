@@ -1,0 +1,96 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo para o corpo */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Estilo para o container principal */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2em;
+}
+
+/* Estilos Gerais da Tabela */
+.table-container {
+  margin: 2em auto;
+  max-width: 90%;
+  overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse; /* Remove espaços entre as células */
+  margin: 1em 0;
+}
+
+.data-table th, .data-table td {
+  padding: 0.75em;
+  border: 1px solid #007bff; /* Borda azul ao redor das células */
+  text-align: left; /* Alinha o texto à esquerda por padrão */
+}
+
+.data-table th {
+  background-color: #007bff; /* Fundo azul para cabeçalhos */
+  color: white; /* Texto branco nos cabeçalhos */
+  font-weight: bold; /* Texto em negrito nos cabeçalhos */
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f1f1f1; /* Cor de fundo alternada para linhas pares */
+}
+
+.data-table tr:hover {
+  background-color: #e1e1e1; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para títulos */
+h1 {
+  text-align: center; /* Centraliza o texto */
+  margin-top: 1em; /* Ajusta a margem superior, se necessário */
+  margin-bottom: 0.5em; /* Ajusta a margem inferior, se necessário */
+}
+
+/* Media Queries para Responsividade */
+
+/* Tablets e dispositivos móveis em orientação vertical */
+@media (max-width: 768px) {
+  .container {
+    padding: 1em; /* Reduz o padding para telas menores */
+  }
+
+  .data-table th, .data-table td {
+    padding: 0.5em; /* Reduz o padding das células */
+  }
+
+  .data-table {
+    font-size: 14px; /* Ajusta o tamanho da fonte para dispositivos menores */
+  }
+}
+
+/* Dispositivos móveis em orientação horizontal */
+@media (max-width: 480px) {
+  .data-table th, .data-table td {
+    font-size: 12px; /* Reduz ainda mais o tamanho da fonte */
+    padding: 0.4em; /* Ajusta o padding das células para melhor visualização */
+  }
+}
+/* Estilo para o rodapé */
+.footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #007bff;
+  color: white;
+  font-size: 0.9em;
+  margin-top: 2em;
+  border-radius: 0 0 10px 10px;
+}
