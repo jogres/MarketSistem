@@ -7,31 +7,31 @@
   $sql = mysqli_query($conn, "SELECT cadprod.*, cadfor.NomeFor FROM cadprod INNER JOIN cadfor ON cadprod.idFor = cadfor.idFor WHERE cadprod.NomeProd LIKE '%$termo%' OR cadprod.DesProd LIKE '%$termo%' OR cadprod.CodBar LIKE '%$termo%' OR cadfor.NomeFor LIKE '%$termo%'");
 
   if (!$sql) {
-    die("Erro na consulta: " . mysqli_error($conn));
+    die("Error en la consulta: " . mysqli_error($conn));
   }
 
-  // Começo do HTML
+  // Comezo del HTML
   echo '<!DOCTYPE html>';
   echo '<html lang="es-ar">';
   echo '<head>';
   echo '  <meta charset="UTF-8">';
   echo '  <meta name="viewport" content="width=device-width, initial-scale=1.0">';
   echo '  <title>Registro</title>';
-  echo '  <link rel="stylesheet" href="../../_CSS/menu/menu.css">'; // Vincule o CSS aqui
-  echo '  <link rel="stylesheet" href="../../_CSS/_stoc/list.css">'; // Vincule o CSS aqui
+  echo '  <link rel="stylesheet" href="../../_CSS/menu/menu.css">'; // Vincule el CSS aquí
+  echo '  <link rel="stylesheet" href="../../_CSS/_stoc/list.css">'; // Vincule el CSS aquí
   echo '</head>';
   echo '<body>';
 
-  // Conteúdo do HTML gerado dinamicamente
+  // Contenido del HTML generado dinámicamente
   if(isset($_GET['encontra']) && $nivel=='admin'){ 
-    echo '<div>';
+    echo '<div class="container">';
     echo '  <nav class="main-nav">';
     echo '    <button class="menu-toggle">☰</button>';
     echo '    <ul class="nav-links">';
-    echo '      <li><a href="../../_HTML/_cad/cadProd.php" class="nav-link">Registro Produtos</a></li>';
-    echo '      <li><a href="../../_HTML/_cad/cadFun.php" class="nav-link">Registro Empleados</a></li>';
-    echo '      <li><a href="../../_HTML/_cad/cadFor.php" class="nav-link">Registro Provedores</a></li>';
-    echo '      <li><a href="../../_HTML/_stoc/stoc.php" class="nav-link">Produtos</a></li>';
+    echo '      <li><a href="../../_HTML/_cad/cadProd.php" class="nav-link">Registro de Productos</a></li>';
+    echo '      <li><a href="../../_HTML/_cad/cadFun.php" class="nav-link">Registro de Empleados</a></li>';
+    echo '      <li><a href="../../_HTML/_cad/cadFor.php" class="nav-link">Registro de Proveedores</a></li>';
+    echo '      <li><a href="../../_HTML/_stoc/stoc.php" class="nav-link">Productos</a></li>';
     echo '      <li><a href="../../_HTML/_venda/venda.php" class="nav-link">Vender</a></li>';
     echo '    </ul>';
     echo '    <div class="nav-user-actions">';
@@ -47,7 +47,7 @@
     echo '      <thead>';
     echo '        <tr>';
     echo '          <th><strong>Nombre del producto</strong></th>';
-    echo '          <th><strong>Provedor</strong></th>';
+    echo '          <th><strong>Proveedor</strong></th>';
     echo '          <th><strong>Descripción del producto</strong></th>';
     echo '          <th><strong>Cantidad</strong></th>';
     echo '          <th><strong>Código de barras</strong></th>';
@@ -81,10 +81,11 @@
   }
 
   if(isset($_GET['encontra']) && $nivel=='usuario'){ 
+    echo '<div class="container">';
     echo '  <nav class="main-nav">';
     echo '    <button class="menu-toggle">☰</button>';
     echo '    <ul class="nav-links">';
-    echo '      <li><a href="../../_HTML/_stoc/stoc.php" class="nav-link">Produtos</a></li>';
+    echo '      <li><a href="../../_HTML/_stoc/stoc.php" class="nav-link">Productos</a></li>';
     echo '      <li><a href="../../_HTML/_venda/venda.php" class="nav-link">Vender</a></li>';
     echo '    </ul>';
     echo '    <div class="nav-user-actions">';
@@ -100,7 +101,7 @@
     echo '      <thead>';
     echo '        <tr>';
     echo '          <th><strong>Nombre del producto</strong></th>';
-    echo '          <th><strong>Provedor</strong></th>';
+    echo '          <th><strong>Proveedor</strong></th>';
     echo '          <th><strong>Descripción del producto</strong></th>';
     echo '          <th><strong>Cantidad</strong></th>';
     echo '          <th><strong>Código de barras</strong></th>';
@@ -127,30 +128,41 @@
     echo ' </footer>';
     echo ' <script src="../../_js/_menu/menu.js"></script> ';
   }
+  
+  
+  
 
-  if(isset($_GET['codV'])){
-    while($linha=mysqli_fetch_assoc($sql)){
-      $idProd = $linha['idProd'];        
-      $NomeProd = $linha["NomeProd"];
-      $preco = $linha["Preco"];
-      $qtd = 01;             
+    if(isset($_GET['codV'])){
+      while($linha=mysqli_fetch_assoc($sql)){
+        $idProd = $linha['idProd'];        
+        $NomeProd = $linha["NomeProd"];
+        $preco = $linha["Preco"];
+        $qtd = 01;             
+      }
+    
+      $list = mysqli_query($conn, "select cadprod.idFor, cadprod.idProd,cadprod.NomeProd, CadFor.NomeFor, cadprod.DesProd, cadprod.ContProd, cadprod.CodBar, cadprod.Custo, cadprod.Preco, cadprod.total FROM CadFor INNER JOIN CadProd ON CadFor.idfor = CadProd.idfor WHERE CadProd.idProd = $idProd;");
+      $cont = mysqli_fetch_assoc($list);
+      if($cont['ContProd'] > 0){
+         $url ="../../_HTML/_venda/venda.php?produto=". urlencode($NomeProd)."&preco=".urlencode($preco)."&quantidade=".urldecode($qtd)."&id=".urldecode($idProd);
+         header("location:". $url);
+      }else{
+        $url ="../../_HTML/_venda/venda.php?"."&cont=".urldecode($cont['ContProd']);
+        header("location:". $url);
+      }   
     }
-    $url ="../../_HTML/_venda/venda.php?produto=". urlencode($NomeProd)."&preco=".urlencode($preco)."&quantidade=".urldecode($qtd)."&id=".urldecode($idProd);
-    header("location:". $url);
-  }
 
-  if(isset($_GET['codD'])){
-    while($linha=mysqli_fetch_assoc($sql)){
-      $idProd = $linha['idProd'];        
-      $NomeProd = $linha["NomeProd"];
-      $preco = $linha["Preco"];
-      $codB = $linha['CodBar'];
+    if(isset($_GET['codD'])){
+      while($linha=mysqli_fetch_assoc($sql)){
+        $idProd = $linha['idProd'];        
+        $NomeProd = $linha["NomeProd"];
+        $preco = $linha["Preco"];
+        $codB = $linha['CodBar'];
+      }
+      $url ="../../_HTML/_venda/devo.php?produto=". urlencode($NomeProd)."&preco=".urlencode($preco)."&id=".urldecode($idProd)."&codbar=".urldecode($codB);
+      header("location:". $url);
     }
-    $url ="../../_HTML/_venda/devo.php?produto=". urlencode($NomeProd)."&preco=".urlencode($preco)."&id=".urldecode($idProd)."&codbar=".urldecode($codB);
-    header("location:". $url);
-  }
 
-  // Fecho do HTML
+  // Cierre del HTML
   echo '</body>';
   echo '</html>';
 ?>

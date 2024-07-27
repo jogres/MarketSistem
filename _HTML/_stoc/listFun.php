@@ -40,7 +40,7 @@
               <th>Nombre del Empleado</th>
               <th>DNI del Empleado</th>
               <th>Dirección</th>
-              <th>Telefono</th>
+              <th>Teléfono</th>
               <th>Email</th>
               <th>Credenciales de Acceso</th>
               <th>Cargo</th>
@@ -55,7 +55,7 @@
       </div>
     </div>
     <footer class="footer">
-      <!-- Conteúdo do rodapé -->
+      <!-- Contenido del pie de página -->
     </footer>
     <script src="../../_js/_menu/menu.js"></script> 
   </div>  

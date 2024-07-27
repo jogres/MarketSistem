@@ -37,10 +37,10 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th>Nombre del Fornecedor</th>
+              <th>Nombre del Proveedor</th>
               <th>CUIT</th>
-              <th>Telefono</th>
-              <th>Email del Fornecedor</th>
+              <th>Teléfono</th>
+              <th>Email del Proveedor</th>
             </tr>
           </thead>
           <tbody>
@@ -52,7 +52,7 @@
       </div>
     </div>
     <footer class="footer">
-      <!-- Conteúdo do rodapé -->
+      <!-- Contenido del pie de página -->
     </footer>
     <script src="../../_js/_menu/menu.js"></script> 
   </div>  

@@ -16,8 +16,8 @@
       echo "<td>". $campo["NomeFun"] ."</td>";
       echo "<td>". $campo["CredAcesV"] ."</td>";
       echo "<td>". $campo["ProdV"] ."</td>";   
-      echo "<td>$ ". number_format($campo["Troco"],2) ."</td>";
-      echo "<td>$ ". number_format($campo["Total"],2) ."</td>";
+      echo "<td>$ ". $campo["Troco"] ."</td>";
+      echo "<td>$ ". $campo["Total"] ."</td>";
       echo "<tr/>";
       $total+= $campo["Total"]; 
     }

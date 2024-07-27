@@ -52,7 +52,7 @@
             </p>
           </fieldset>
           <div class="subbt">
-            <button class="search-button" type="submit" name="submit">guardar</button>
+            <button class="search-button" type="submit" name="submit">Guardar</button>
           </div>
         </form>
       </div>

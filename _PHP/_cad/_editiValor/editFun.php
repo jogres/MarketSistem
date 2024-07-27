@@ -11,7 +11,7 @@
     echo"<input type='text' name='NomeFun' id='NomeFun' value ='".$campo["NomeFun"]."'>";
     echo"</p>";
     echo"<p>";
-    echo"<label for='Dni'> DNI: </label>";
+    echo"<label for='Dni'>DNI: </label>";
     echo"<input type='text' name='Dni' id='Dni' value ='".$campo["Dni"]."'>";
     echo"</p>";
     echo"<p>";

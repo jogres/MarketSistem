@@ -11,8 +11,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro</title>
-  <link rel="stylesheet" href="../../_CSS/menu/menu.css"> <!-- Link para o arquivo CSS -->
-  <link rel="stylesheet" href="../../_CSS/_cad/cad.css"> <!-- Link para o arquivo CSS -->
+  <link rel="stylesheet" href="../../_CSS/menu/menu.css"> <!-- Link para el archivo CSS -->
+  <link rel="stylesheet" href="../../_CSS/_cad/cad.css"> <!-- Link para el archivo CSS -->
 </head>
 <body>
   <div class="container">
@@ -42,7 +42,7 @@
           ?>
         </fieldset>
         <div class="subbt">
-          <button class="search-button" type="submit" name="submit">guardar</button>
+          <button class="search-button" type="submit" name="submit">Guardar</button>
         </div>
       </form>
     </div>

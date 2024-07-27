@@ -10,7 +10,7 @@
   
   while($campo=mysqli_fetch_array($edit)){
     echo "<tr>";
-    echo "<td>". $campo["idFor"], $campo["NomeProd"]."</td>";
+    echo "<td>". $campo["NomeProd"]."</td>";
     echo "<td>". $campo["NomeFor"] ."</td>";
     echo "<td>". $campo["DesProd"] ."</td>";
     echo "<td>". $campo["ContProd"] ."</td>";

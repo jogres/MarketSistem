@@ -34,18 +34,18 @@
 
     <div class="search-container">
       <form class="search-form" action="../../_PHP/_buscar/busca.php" method="GET">
-        <input class="search-input" type="text" id="busca" name="busca" placeholder="Busqueda...">
-        <button class="search-button" type="submit" id="encontra" name="encontra">Encontar</button>
+        <input class="search-input" type="text" id="busca" name="busca" placeholder="Buscar...">
+        <button class="search-button" type="submit" id="encontra" name="encontra">Encontrar</button>
       </form>
     </div>
 
     <div class="content">
       <div class="table-container">
-        <table class="data-table" >
+        <table class="data-table">
           <thead>
             <tr>
               <th><strong>Nombre del producto</strong></th>
-              <th><strong>Provedor</strong></th>
+              <th><strong>Proveedor</strong></th>
               <th><strong>Descripción del producto</strong></th>
               <th><strong>Cantidad</strong></th>
               <th><strong>Código de barras</strong></th>

@@ -15,7 +15,7 @@
       <input type='text' id='Dni' name='Dni' value='".$campo["Dni"]."'>
     </p>
     <p>
-      <label for='NumCli'>Número de la empresa: </label>
+      <label for='NumCli'>Número de la Empresa: </label>
       <input type='text' id='NumCli' name='NumCli' value='".$campo["NumCli"]."'>
     </p>
     ";

@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../_CSS/_cad/cad.css">
 </head>
 <body>
-  <div >
+  <div class="container">
       <nav class="main-nav">
         <button class="menu-toggle">☰</button>
         <ul class="nav-links">
@@ -71,7 +71,7 @@
             </p>
           </fieldset>
           <div class="subbt">
-            <button class="search-button" type="submit" name="submit">guardar</button>
+            <button class="search-button" type="submit" name="submit">Guardar</button>
           </div>
         </form>
       </div>

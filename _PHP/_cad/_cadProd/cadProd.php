@@ -9,7 +9,7 @@
   $Preco = $_POST['Preco'];
   $total = $ContProd * $Preco;
   
-  mysqli_query($conexao,"insert into cadprod (NomeProd, DesProd, ContProd, CodBar, Cuni, Custo, Puni, Preco, total,idFor) value('$NomeProd','$DesProd','$ContProd','$CodBar', '$Custo', '$Preco','$total','$idFor')");
+  mysqli_query($conexao,"insert into cadprod (NomeProd, DesProd, ContProd, CodBar, Custo, Preco, total,idFor) value('$NomeProd','$DesProd','$ContProd','$CodBar', '$Custo', '$Preco','$total','$idFor')");
 
   header("location: ../../../_HTML/_cad/cadProd.php");
   exit();

@@ -11,8 +11,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro</title>
-  <link rel="stylesheet" href="../../_CSS/menu/menu.css"> <!-- Link para o arquivo CSS -->
-  <link rel="stylesheet" href="../../_CSS/_cad/editGeral.css"> <!-- Link para o arquivo CSS -->
+  <link rel="stylesheet" href="../../_CSS/menu/menu.css"> <!-- Link para el archivo CSS -->
+  <link rel="stylesheet" href="../../_CSS/_cad/editGeral.css"> <!-- Link para el archivo CSS -->
 </head>
 <body>
   <div class="main-container">
@@ -40,7 +40,7 @@
           <thead>
             <tr>
               <th><strong>Nombre del producto</strong></th>
-              <th><strong>Provedor</strong></th>
+              <th><strong>Proveedor</strong></th>
               <th><strong>Descripción del producto</strong></th>
               <th><strong>Cantidad</strong></th>
               <th><strong>Código de barras</strong></th>
@@ -67,7 +67,7 @@
         </fieldset>
         <div class="form-buttons">
           <button class="form-button" type="submit" name="add">Agregar</button>
-          <button class="form-button" type="submit" name="sub">Subtrair</button>
+          <button class="form-button" type="submit" name="sub">Restar</button>
         </div>
       </form>
     </div>

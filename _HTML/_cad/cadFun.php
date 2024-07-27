@@ -38,11 +38,11 @@
         <form method="post" action="../../_PHP/_cad/cadFun.php">
           <fieldset>
             <p>
-              <label for="NomeFun">Apelido: </label>
+              <label for="NomeFun">Apellido: </label>
               <input class="search-input" type="text" name="NomeFun" id="NomeFun" required>
             </p>
             <p>
-              <label for="Dni"> DNI: </label>
+              <label for="Dni">DNI: </label>
               <input class="search-input" type="text" name="Dni" id="Dni" required>
             </p>
             <p>
@@ -66,13 +66,13 @@
               <div class="radio-group">
                 <label><input type="radio" name="CargoFun" value="admin" required> Gerente</label>
                 <label><input type="radio" name="CargoFun" value="usuario" required> Empleado</label>
-                
               </div>
             </p>
           </fieldset>
           <div class="subbt">
-            <button class="search-button" type="submit" name="submit">guardar</button>
+            <button class="search-button" type="submit" name="submit">Guardar</button>
           </div>
+        </form>
       </div>
     </div>
     <div>

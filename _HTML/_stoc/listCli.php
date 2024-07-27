@@ -37,9 +37,9 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th>Nombre del Fornecedor</th>
+              <th>Nombre del Proveedor</th>
               <th>DNI</th>
-              <th>Telefono</th>
+              <th>Teléfono</th>
             </tr>
           </thead>
             <?php 
@@ -49,7 +49,7 @@
       </div>
     </div>
     <footer class="footer">
-      <!-- Conteúdo do rodapé -->
+      <!-- Contenido del pie de página -->
     </footer>
     <script src="../../_js/_menu/menu.js"></script> 
   </div>

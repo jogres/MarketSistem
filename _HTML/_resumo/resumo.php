@@ -6,11 +6,11 @@
   }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Documento</title>
   <link rel="stylesheet" href="../../_CSS/menu/menu.css">
   <link rel="stylesheet" href="../../_CSS/_resumo/resumo.css">
 </head>
@@ -39,11 +39,11 @@
       <table class="data-table">
         <thead>
           <tr>
-            <th><strong>Data</strong></th>
+            <th><strong>Fecha</strong></th>
             <th><strong>Nombre Del Empleado</strong></th>
             <th><strong>Credenciales Del Empleado</strong></th>
-            <th><strong>Produtos Vendidos</strong></th>
-            <th><strong>Troco</strong></th>
+            <th><strong>Productos Vendidos</strong></th>
+            <th><strong>Vuelto</strong></th>
             <th><strong>Total</strong></th>
           </tr>
         </thead>

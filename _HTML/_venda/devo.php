@@ -34,8 +34,8 @@
     
     <div class="search-container">
       <form class="search-form" action="../../_PHP/_buscar/busca.php" method="GET">
-        <input class="search-input" type="number" id="busca" name="busca" placeholder="Busqueda...">
-        <button class="search-button" type="submit" id="codD" name="codD">Encontar</button>
+        <input class="search-input" type="number" id="busca" name="busca" placeholder="Búsqueda...">
+        <button class="search-button" type="submit" id="codD" name="codD">Buscar</button>
       </form>
     </div>
 
@@ -43,30 +43,32 @@
       <input class="datetime-input" type="datetime-local" id="data" name="data" readonly>
 
       <?php
-        $produto = ""; 
-        $preco = ""; 
-        $id = ""; 
-        $codB = ""; 
+         $produto = ""; 
+         $preco = ""; 
+         $id = ""; 
+         $codB = ""; 
         if(isset($_GET['produto'],$_GET['preco'],$_GET['id'],$_GET['codbar'])){
           $produto = $_GET['produto'];
           $preco = $_GET['preco'];
           $id = $_GET['id'];
           $codB = $_GET['codbar'];
         }
+        
       ?>
-      <textarea class="view-textarea" name="view" id="view" disabled>
-        <?php echo htmlspecialchars($produto . "  " . $preco); ?>
+      <textarea class="view-textarea" name="view" id="view">
+        <?php echo $produto . "  " . $preco; ?>
       </textarea>
-      <input type="hidden" name="produto" id="produto" value="<?php echo htmlspecialchars($produto); ?>">
-      <input type="hidden" name="preco" id="preco" value="<?php echo htmlspecialchars($preco); ?>">
-      <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($id); ?>">
-      <input type="hidden" name="codb" id="codb" value="<?php echo htmlspecialchars($codB); ?>">
-      <button class="submit-button" type="submit">Tiket</button>
+      <input type="hidden" name="produto" id="produto" value="<?php echo $produto; ?>">
+      <input type="hidden" name="preco" id="preco" value="<?php echo $preco; ?>">
+      <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
+      <input type="hidden" name="codb" id="codb" value="<?php echo $codB; ?>">
+      <button class="submit-button" type="submit">Ticket</button>
     </form>
-
+    
     <footer class="footer"></footer>
     <script src="../../_js/_venda/data.js"></script>  
-    <script src="../../_js/_menu/menu.js"></script>  
+    <script src="../../_js/_menu/menu.js"></script> 
+   
   </div>
 </body>
 </html>
