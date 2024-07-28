@@ -1,11 +1,13 @@
 <?php
   // Iniciar ou resumir a sessão
   session_start(); 
-
+  $_SESSION['cliname'] = '';
   // Verificar se há uma variável de sessão para os produtos
   if (!isset($_SESSION['produtos'])) {
       $_SESSION['produtos'] = array();
+      
   }
+  
   $total = isset($_SESSION['total']) ? $_SESSION['total'] : 0;
   $troco = 0;
 

@@ -16,8 +16,31 @@ body {
   max-width: 1200px;
   margin: auto;
   padding: 2em;
+  position: relative; /* Necessário para posicionamento absoluto */
 }
 
+/* Estilos específicos para search-cli */
+.search-cli {
+  flex-direction: row-reverse;
+  right: 0; /* Alinha à direita da div .container */
+  top: 2em; /* Espaço do topo para ajuste */
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.cliname {
+  color: #007bff; /* Cor azul para o nome do cliente */
+  font-weight: bold; /* Negrito para destaque */
+}
+
+.cli {
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilos restantes */
 .sale-section {
   display: flex;
   gap: 2em;
@@ -137,4 +160,3 @@ body {
   margin-top: 2em;
   border-radius: 0 0 10px 10px;
 }
-

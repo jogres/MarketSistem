@@ -1,0 +1,118 @@
+create database market;
+create table cadfun(
+	idFun INT AUTO_INCREMENT PRIMARY KEY,
+	NomeFun VARCHAR(255) NOT NULL,
+	Dni VARCHAR(255) NOT NULL,
+	EndFun TEXT NOT NULL,
+	NumFun VARCHAR(255) NOT NULL,
+	EmailFun VARCHAR(255) NOT NULL,
+	CredAces INT NOT NULL,
+	CargoFun VARCHAR(255) NOT NULL
+);
+create table cadfor (
+	idFor INT AUTO_INCREMENT PRIMARY KEY,
+	NomeFor VARCHAR(255) NOT NULL,
+	Cuit VARCHAR(255) NOT NULL,
+	NumFor VARCHAR(255) NOT NULL,
+	EmailFor VARCHAR(255) NOT NULL
+);
+create table cadprod (
+	idProd INT AUTO_INCREMENT PRIMARY KEY,
+	NomeProd VARCHAR(255) NOT NULL,
+	DesProd TEXT NOT NULL,
+	ContProd INT NOT NULL,
+	CodBar INT NOT NULL,
+	Cuni DECIMAL(20, 2) NOT NULL,
+	Custo DECIMAL(20, 2) NOT NULL,
+	Puni DECIMAL(20, 2) NOT NULL,
+	Preco DECIMAL(50, 2) NOT NULL,
+	Total DECIMAL(50, 2) NOT NULL,
+	idFor INT,
+	FOREIGN KEY (idFor) REFERENCES cadfor(idFor)
+);
+create table cadcli (
+	idCliINT AUTO_INCREMENT PRIMARY KEY,
+	NomeCli VARCHAR(255) NOT NULL,
+	Dni VARCHAR(255) NOT NULL,
+	NumCli VARCHAR(255) NOT NULL
+);
+create table venda (
+	idV INT AUTO_INCREMENT PRIMARY KEY,
+	DataV DATETIME NOT NULL,
+	ProdV VARCHAR(255) NOT NULL,
+	CredAcesV INT NOT NULL,
+	Nome VARCHAR(255) NOT NULL,
+	NomeFun VARCHAR(255) NOT NULL,
+	Total DECIMAL(50, 2) NOT NULL,
+	Troco DECIMAL(50, 2) NOT NULL
+);
+create table vendaD (
+	idDia INT AUTO_INCREMENT PRIMARY KEY,
+	DataV DATE NOT NULL,
+	ProdV VARCHAR(255) NOT NULL,
+	qt INT,
+	Preco DECIMAL(50, 2) NOT NULL,
+	TotalD DECIMAL(50, 2) NOT NULL
+	
+);
+create table devo(
+	idD INT AUTO_INCREMENT PRIMARY KEY,
+	DataD DATE NOT NULL,
+	NomeD VARCHAR(255) NOT NULL,
+	Preco DECIMAL(50, 2) NOT NULL
+);
+
+DELIMITER $$
+
+CREATE TRIGGER Cont
+BEFORE INSERT ON cadprod
+FOR EACH ROW
+BEGIN
+    IF NEW.ContProd < 0 THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Valor não pode ser negativo';
+    END IF;
+END$$
+
+DELIMITER ;
+DELIMITER $$
+
+CREATE TRIGGER ContM
+BEFORE INSERT ON cadprod
+FOR EACH ROW
+BEGIN
+    IF NEW.ContProd < 10 THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Valor não pode ser inferior a 10';
+    END IF;
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE EVENT UpdateProductTotalsEvent
+ON SCHEDULE EVERY 1 MINUTE
+DO
+BEGIN
+
+
+    -- Atualiza a quantidade e o total somando os valores novos
+    UPDATE vendad AS target
+    JOIN (
+        SELECT ProdV, DataV, SUM(qt) AS total_qty, SUM(TotalD) AS total_sum
+        FROM vendad
+        GROUP BY ProdV, DataV
+    ) AS source
+    ON target.ProdV = source.ProdV AND target.DataV = source.DataV
+    SET target.qt = source.total_qty,
+        target.TotalD = source.total_sum;
+
+        -- Remove registros duplicados, mantendo o mais recente
+    DELETE t1
+    FROM vendad t1
+    JOIN vendad t2
+    ON t1.ProdV = t2.ProdV AND t1.DataV = t2.DataV AND t1.idDia < t2.idDia;
+END$$
+
+DELIMITER ;
+
+

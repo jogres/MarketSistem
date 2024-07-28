@@ -1,6 +1,7 @@
 <?php
   session_start(); 
   include('../../_PHP/_valid/logado.php');
+  $verifica = isset($_GET['produto'],$_GET['preco'],$_GET['id'],$_GET['codbar']) ? 'true' : 'false';
 ?>
 <!DOCTYPE html>
 <html lang="es-ar">
@@ -39,10 +40,11 @@
       </form>
     </div>
 
-    <form class="product-form" action="../../_PHP/_venda/devo.php" method="post">
+    <form class="product-form" action="../../_PHP/_venda/devo.php" method="post" onsubmit="return validateForm(event)">
       <input class="datetime-input" type="datetime-local" id="data" name="data" readonly>
 
       <?php
+        
          $produto = ""; 
          $preco = ""; 
          $id = ""; 
@@ -67,8 +69,17 @@
     
     <footer class="footer"></footer>
     <script src="../../_js/_venda/data.js"></script>  
-    <script src="../../_js/_menu/menu.js"></script> 
-   
+    <script src="../../_js/_menu/menu.js"></script>
+    <script>
+      var verifica = <?php echo $verifica; ?>;
+      function validateForm(event){
+        if (verifica === false) {
+          alert("El campo de productos no puede estar vacío.");
+          return false;
+        }
+        return true;
+      }
+    </script> 
   </div>
 </body>
 </html>

@@ -38,6 +38,16 @@
         <button type="submit" id="codV" name="codV" class="search-button">Encontrar</button>
       </form>
     </div>
+    <div class="search-cli">
+          <form action="../../_PHP/_venda/buscaCli.php" method="get">
+            <label for="cli" class="cliname">
+              <?php
+                echo $_SESSION['cliname'];
+              ?>
+            </label>
+            <input type="text" name="cli" id="cli" class="cli">
+          </form>
+    </div>
     <section class="sale-section">
       <div class="product-display">
         <form action="../../_PHP/_venda/envVenda.php" method="post" class="sale-form" onsubmit="return validateForm(event)">
@@ -56,6 +66,7 @@
             <input type="hidden" name="nome" id="nome" value="<?php echo $nomeF; ?>">
             <input type="hidden" name="empresa" id="empresa" value="text">
             <input type="hidden" name="cred" id="cred" value="<?php echo $cred; ?>">
+            <input type="hidden" name="nomeCli" id="nomeCli" value="<?php echo $_SESSION['cliname']; ?>">
             <fieldset class="totals-fieldset">
               <input type="text" name="total" id="total" value="<?php echo $total; ?>" readonly class="total-input">
               <input type="text" name="troco" id="troco" value="<?php echo $troco; ?>" readonly class="troco-input">

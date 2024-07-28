@@ -9,6 +9,10 @@
   if (!$sql) {
     die("Error en la consulta: " . mysqli_error($conn));
   }
+  if (mysqli_num_rows($sql) == 0) {
+    header("Location: ../../_HTML/_stoc/stoc.php");
+    exit();
+  }
 
   // Comezo del HTML
   echo '<!DOCTYPE html>';

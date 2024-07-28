@@ -10,7 +10,8 @@
   $CredAcesV = $_POST['cred'];
   $Total = $_POST['total'];
   $Troco = $_POST['troco'];
-
+  $nomeCli = $_POST['nomeCli'];
+  
   if (isset($_POST['submitted'])) {
     if(isset($_POST['Fim'])){
        $cont_ids = array_count_values($_SESSION['id_temp']);
