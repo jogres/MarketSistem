@@ -2,6 +2,8 @@
   include('../../_PHP/_venda/buscaPreenche.php');
   include('../../_PHP/_valid/logado.php');
   include('../../_PHP/_venda/remover.php');
+  
+
 ?>
 <!DOCTYPE html>
 <html lang="es-ar">
