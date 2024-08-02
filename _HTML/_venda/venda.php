@@ -101,10 +101,20 @@
       </div>
     </section>
     <div class="payment-container">
-      <form action="venda.php" method="get" class="payment-form">
-        <input type="text" name="pago" id="pago" class="payment-input">
-      </form>  
-    </div>
+        <div class="payment-discont">
+          <form action="venda.php" method="get" class="payment-discont">
+            <fieldset class="dicont">
+              <legend class="legend-desc">Descuento</legend>
+              <input type="text" name="disc" id="disc" class="payment-input">
+            </fieldset>          
+          </form>
+        </div>    
+        <div class="payment-pay">
+          <form action="venda.php" method="get" class="payment-form">
+            <input type="text" name="pago" id="pago" class="payment-input">
+          </form>  
+        </div>
+    </div>  
     <footer class="footer">
       &copy; <?php echo date('Y'); ?> Sistema de Ventas de Supermercado
     </footer>

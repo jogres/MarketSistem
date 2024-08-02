@@ -132,7 +132,7 @@ body {
   background-color: #cc0000;
 }
 
-.payment-container {
+.payment-pay {
   margin-top: 2em;
 }
 
@@ -159,4 +159,31 @@ body {
   font-size: 0.9em;
   margin-top: 2em;
   border-radius: 0 0 10px 10px;
+}
+.payment-discont {
+  width: 50%;
+  margin: 0; /* Remove o centramento automático */
+  box-sizing: border-box; /* Inclui padding e border na largura total */
+  float: left; /* Alinha a div à esquerda */
+}
+.payment-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dicont {
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 10px;
+  margin: 0;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+.legend-desc{
+  font-weight: bold;
+  color: #007bff;
 }

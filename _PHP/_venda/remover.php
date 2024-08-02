@@ -15,6 +15,11 @@
     $pago=$_GET['pago'];
     $_SESSION['troco']= $pago - $total;
     $troco = $_SESSION['troco'];              
+  }
+  if(isset($_GET['disc'])){
+    $dicont = $_GET['disc'];
+    $_SESSION['total'] = ($total -($total*($dicont/100)));
+    $total = $_SESSION['total'];
   }  
   
   if (isset($_GET['id'])) {

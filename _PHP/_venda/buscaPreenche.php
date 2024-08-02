@@ -21,10 +21,11 @@
 
     // Adicionar novo produto à variável de sessão
     $_SESSION['produtos'][] = "$produto | $" . $preco . " | $quantidade";
-    $total += $preco;
-    $_SESSION['total']=$total;
+    
+      $total += $preco; 
+      $_SESSION['total']=$total;
   }
-  $errorMessage ='';
+ $errorMessage ='';
   if(isset($_GET['cont'])){
     
       $errorMessage = 'Erro: Os parâmetros produto, preco e quantidade são obrigatórios.';
