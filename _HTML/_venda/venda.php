@@ -41,14 +41,19 @@
       </form>
     </div>
     <div class="search-cli">
+        <fieldset class="dicont"> 
+          <legend class="legend-desc">Cliente</legend>
           <form action="../../_PHP/_venda/buscaCli.php" method="get">
-            <label for="cli" class="cliname">
-              <?php
-                echo $_SESSION['cliname'];
-              ?>
-            </label>
+            
+                <label for="cli" class="cliname">
+                  <?php
+                    echo $_SESSION['cliname'];
+                  ?>
+                </label>
+                
             <input type="text" name="cli" id="cli" class="cli">
           </form>
+        </fieldset>      
     </div>
     <section class="sale-section">
       <div class="product-display">
