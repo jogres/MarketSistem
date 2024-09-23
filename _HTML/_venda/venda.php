@@ -2,7 +2,7 @@
   include('../../_PHP/_venda/buscaPreenche.php');
   include('../../_PHP/_valid/logado.php');
   include('../../_PHP/_venda/remover.php');
-  
+  $idTempPreenchido = isset($_SESSION['id_temp']) && !empty($_SESSION['id_temp']) ? 'true' : 'false';
 
 ?>
 <!DOCTYPE html>
@@ -127,22 +127,60 @@
   <script src="../../_js/_venda/data.js"></script>
   <script src="../../_js/_menu/menu.js"></script>
   <script>
-    window.onload = function() {
-      document.getElementById("busca").focus();
-    };
-    
-    function validateForm(event) {
-      var textarea = document.getElementById("pdV");
-      var submitteButton = document.getElementById("submitte");
+  window.onload = function() {
+    document.getElementById("busca").focus();
 
-      if (event.submitter === submitteButton && textarea.value.trim() === "") {
-        alert("El campo de productos no puede estar vacío.");
-        return false;
+    // Variável passada pelo PHP para indicar se id_temp está preenchido
+    var idTempPreenchido = <?php echo $idTempPreenchido; ?>;
+
+    // Desabilitar o botão "Fim" inicialmente, caso a sessão não esteja preenchida
+    var fimButton = document.getElementById("Fim");
+    if (idTempPreenchido === false) {
+      fimButton.disabled = true; // Desabilitar o botão se id_temp não estiver preenchido
+    } else {
+      fimButton.disabled = false; // Habilitar o botão se id_temp estiver preenchido
+    }
+
+    // Desabilitar o botão "Imprimir" se o campo de produtos estiver vazio inicialmente
+    var submitteButton = document.getElementById("submitte");
+    var textarea = document.getElementById("pdV");
+
+    // Função que desabilita o botão "Imprimir" se o campo textarea estiver vazio
+    function checkTextareaContent() {
+      if (textarea.value.trim() === "") {
+        submitteButton.disabled = true; // Desabilitar o botão "Imprimir"
+      } else {
+        submitteButton.disabled = false; // Habilitar o botão "Imprimir"
+      }
+    }
+
+    // Verifica o conteúdo do textarea a cada alteração
+    textarea.addEventListener('input', checkTextareaContent);
+
+    // Função que valida o formulário
+    function validateForm(event) {
+      if (event.submitter === submitteButton) {
+        if (textarea.value.trim() === "") {
+          alert("El campo de productos no puede estar vacío.");
+          event.preventDefault(); // Impedir o envio do formulário
+          return false;
+        } else {
+          // Habilitar o botão "Fim" após a validação do botão "Imprimir"
+          fimButton.disabled = false;
+        }
       }
       return true;
     }
-    
-    history.replaceState({}, document.title, window.location.pathname);
-  </script>
+
+    // Adiciona o evento ao formulário
+    document.querySelector('.sale-form').addEventListener('submit', validateForm);
+
+    // Verificar o conteúdo do textarea ao carregar a página
+    checkTextareaContent();
+  };
+
+  history.replaceState({}, document.title, window.location.pathname);
+</script>
+
 </body>
 </html>
