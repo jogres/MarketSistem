@@ -31,7 +31,7 @@ create table cadprod (
 	FOREIGN KEY (idFor) REFERENCES cadfor(idFor)
 );
 create table cadcli (
-	idCliINT AUTO_INCREMENT PRIMARY KEY,
+	idCli INT AUTO_INCREMENT PRIMARY KEY,
 	NomeCli VARCHAR(255) NOT NULL,
 	Dni VARCHAR(255) NOT NULL,
 	NumCli VARCHAR(255) NOT NULL
