@@ -19,6 +19,7 @@ if (isset($_POST['idProduto'])) {
       foreach ($_SESSION['id'] as $key => $id) {
         if ($key == $idProduto) {
             unset($_SESSION['id'][$key]);
+            unset($_SESSION['id_temp'][$key]);
             break; // Parar o loop após remover o item
         }
       }
